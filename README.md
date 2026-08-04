@@ -2,7 +2,7 @@
 
 Site portfólio pessoal de **Victor Seixas Alves**, editor de vídeo focado em conteúdo para redes sociais e vídeos institucionais.
 
-**🔗 Acesse o site no ar:** [victorseixasalves.github.io/portfolioedicao-victorseixas](https://victorseixasalves.github.io/portifolioedicao-victorseixas/)
+**🔗 Acesse o site no ar:** [victorseixasalves.github.io/portfolioedicao-victorseixas](https://victorseixasalves.github.io/portfolioedicao-victorseixas/)
 
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)
@@ -15,7 +15,7 @@ Site portfólio pessoal de **Victor Seixas Alves**, editor de vídeo focado em c
 
 Um site de página única (*single page*) com identidade visual **futurista/holográfica** — vidro fosco (glassmorphism), gradientes iridescentes animados e tipografia tech — criado para apresentar os trabalhos de edição de vídeo do Victor de forma moderna e profissional.
 
-O projeto não usa nenhum framework: é **HTML, CSS e JavaScript puros**, em um único arquivo, o que torna a hospedagem e a manutenção extremamente simples.
+O projeto não usa nenhum framework: é **HTML, CSS e JavaScript puros**, organizados em arquivos separados (HTML, CSS, JS e imagens), o que torna a hospedagem e a manutenção extremamente simples.
 
 ## ✨ Funcionalidades
 
@@ -38,6 +38,21 @@ O projeto não usa nenhum framework: é **HTML, CSS e JavaScript puros**, em um 
 | **Depoimentos** | Feedbacks de clientes |
 | **Contato** | WhatsApp, e-mail, LinkedIn, GitHub e formulário de contato |
 
+## 📁 Estrutura do projeto
+
+```
+portfolioedicao-victorseixas/
+├── index.html          # Estrutura e conteúdo do site
+├── style.css            # Todo o CSS (visual, animações, responsividade)
+├── script.js             # Toda a lógica em JavaScript
+├── images/
+│   ├── foto-victor.jpg   # Foto de perfil
+│   ├── capcut.png        # Logo do CapCut
+│   ├── photoshop.png     # Logo do Photoshop
+│   └── canva.png         # Logo do Canva
+└── README.md
+```
+
 ## 🛠️ Tecnologias utilizadas
 
 - **HTML5** semântico
@@ -46,26 +61,13 @@ O projeto não usa nenhum framework: é **HTML, CSS e JavaScript puros**, em um 
 - **Google Fonts** — Space Grotesk, Inter e JetBrains Mono
 - **YouTube Embed API** — vídeos incorporados com `referrerpolicy` configurado para evitar o erro 153 do player
 
-## 🚀 Como rodar localmente
+## 📬 Contato
 
-Por ser um arquivo único, não é necessário instalar nada. Duas opções:
+- **WhatsApp:** [(31) 9 8334-2557](https://wa.me/5531983342557)
+- **E-mail:** vseixasalves@gmail.com
+- **LinkedIn:** [victor-seixas-alves](https://www.linkedin.com/in/victor-seixas-alves)
+- **GitHub:** [@victorseixasalves](https://github.com/victorseixasalves)
 
-```bash
-# Opção 1: abrir direto no navegador
-# (os vídeos do YouTube podem não tocar por causa da política de referrer)
-
-# Opção 2 (recomendada): rodar um servidor local simples
-python -m http.server
-# depois acesse http://localhost:8000
-```
-
-## 🌐 Como hospedar (GitHub Pages)
-
-Este projeto já está hospedado gratuitamente via **GitHub Pages**:
-
-1. Configurações do repositório → **Settings → Pages**
-2. Em **Source**, selecione a branch `main` e a pasta `/ (root)`
-3. Salve — o GitHub gera o link automaticamente
-
+---
 
 <p align="center">Feito por Victor Seixas Alves © 2026</p>
