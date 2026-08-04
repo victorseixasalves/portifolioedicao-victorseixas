@@ -2,7 +2,7 @@
 
 Site portfólio pessoal de **Victor Seixas Alves**, editor de vídeo focado em conteúdo para redes sociais e vídeos institucionais.
 
-**🔗 Acesse o site no ar:** [victorseixasalves.github.io/portfolioedicao-victorseixas](https://victorseixasalves.github.io/portfolioedicao-victorseixas/)
+**🔗 Acesse o site no ar:** [victorseixasalves.github.io/portfolioedicao-victorseixas](https://victorseixasalves.github.io/portifolioedicao-victorseixas/)
 
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)
