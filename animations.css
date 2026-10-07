@@ -1,0 +1,131 @@
+/* ==========================================================
+   animations.css — camada extra de animações
+   Carregue DEPOIS do style.css. Não altera o layout existente.
+   ========================================================== */
+
+@media (prefers-reduced-motion: no-preference) {
+
+  /* 1. Entrada orquestrada do hero (acontece uma vez ao abrir o site) */
+  .hero-content > * {
+    opacity: 0;
+    animation: heroIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+  .hero-content > :nth-child(1) { animation-delay: 0.10s; }
+  .hero-content > :nth-child(2) { animation-delay: 0.25s; }
+  .hero-content > :nth-child(3) { animation-delay: 0.45s; }
+  .hero-content > :nth-child(4) { animation-delay: 0.60s; }
+  .scroll-indicator {
+    opacity: 0;
+    animation: heroIn 0.9s 1.1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+  .scroll-indicator svg { animation: nudge 1.8s ease-in-out 2s infinite; }
+
+  @keyframes heroIn {
+    from { opacity: 0; transform: translateY(28px); filter: blur(10px); }
+    to   { opacity: 1; transform: none;             filter: blur(0); }
+  }
+  @keyframes nudge {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(6px); }
+  }
+
+  /* 2. Gradiente do título "respirando" (mesma paleta do favicon) */
+  .gradient-text {
+    background-image: linear-gradient(90deg, #8b5cf6, #38bdf8, #f472b6, #38bdf8, #8b5cf6);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+            background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientFlow 7s linear infinite;
+  }
+  @keyframes gradientFlow {
+    to { background-position: 200% center; }
+  }
+
+  /* 3. Barra de progresso com brilho */
+  .scroll-progress { box-shadow: 0 0 12px rgba(56, 189, 248, 0.7); }
+
+  /* 4. Links do menu: sublinhado que cresce + destaque da seção ativa */
+  .nav-links a {
+    background: linear-gradient(90deg, #8b5cf6, #38bdf8, #f472b6) no-repeat left bottom / 0% 2px;
+    transition: background-size 0.35s ease, color 0.25s ease;
+    padding-bottom: 4px;
+  }
+  .nav-links a:hover,
+  .nav-links a.active { background-size: 100% 2px; }
+
+  /* 5. Esqueleto de carregamento atrás dos vídeos do YouTube */
+  .video-embed {
+    background: linear-gradient(110deg, rgba(255,255,255,0.04) 30%, rgba(255,255,255,0.10) 50%, rgba(255,255,255,0.04) 70%);
+    background-size: 200% 100%;
+    animation: shimmer 1.6s linear infinite;
+  }
+  @keyframes shimmer {
+    to { background-position: -200% 0; }
+  }
+  .proj-card {
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease;
+  }
+  .proj-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 50px -12px rgba(139, 92, 246, 0.45);
+  }
+
+  /* 6. Ícones dos serviços/contato com micro-movimento ao passar o mouse */
+  .icon-box { transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); }
+  .service-card:hover .icon-box,
+  .contact-link:hover .icon-box { transform: rotate(-8deg) scale(1.12); }
+  .tool-logo { transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); }
+  .tool-chip:hover .tool-logo,
+  .tools-main:hover .tool-logo { transform: scale(1.1) rotate(4deg); }
+
+  /* 7. Brilho que segue o cursor nos cards de vidro (elemento criado pelo JS) */
+  .glass-inner { position: relative; }
+  .glass-inner > .spot {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    background: radial-gradient(
+      340px circle at var(--mx, 50%) var(--my, 50%),
+      rgba(139, 92, 246, 0.16),
+      rgba(56, 189, 248, 0.07) 40%,
+      transparent 70%
+    );
+  }
+  .glass-border:hover > .glass-inner > .spot { opacity: 1; }
+
+  /* 8. Botões: brilho que passa ao hover */
+  .btn-primary { position: relative; overflow: hidden; }
+  .btn-primary::after {
+    content: "";
+    position: absolute;
+    top: 0; left: -120%;
+    width: 60%; height: 100%;
+    background: linear-gradient(100deg, transparent, rgba(255,255,255,0.35), transparent);
+    transform: skewX(-20deg);
+    transition: left 0.7s ease;
+    pointer-events: none;
+  }
+  .btn-primary:hover::after { left: 140%; }
+
+  /* 9. Campos do formulário com foco animado */
+  .form-field input,
+  .form-field textarea {
+    transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+  }
+  .form-field input:focus,
+  .form-field textarea:focus {
+    box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.25);
+    transform: translateY(-2px);
+  }
+
+  /* 10. Foto do "Sobre" com flutuação lenta */
+  .photo-frame { animation: floaty 6s ease-in-out infinite; }
+  @keyframes floaty {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-10px); }
+  }
+}
