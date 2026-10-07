@@ -408,3 +408,90 @@
   border-color: transparent;
 }
 .yt-facade:focus-visible { outline: 2px solid var(--cyan); outline-offset: -4px; }
+
+
+/* ==========================================================
+   Depoimentos
+   ========================================================== */
+
+/* A grade se adapta à quantidade de depoimentos (2 cards = 2 colunas cheias) */
+.testimonials-grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+  gap: 24px;
+}
+
+.testimonial-card .glass-inner {
+  display: flex;
+  flex-direction: column;
+  padding: 32px 34px;
+}
+
+.t-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+/* ícone de aspas: mesmo "azulejo" usado nos outros cards */
+.testimonial-card .quote-icon {
+  margin: 0;
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  border-radius: 15px;
+  color: var(--cyan);
+  background: linear-gradient(145deg, rgba(139, 92, 246, 0.30), rgba(56, 189, 248, 0.10));
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  box-shadow: 0 8px 22px -10px rgba(139, 92, 246, 0.7);
+}
+
+/* área de atuação do cliente (antes ficava solta no canto) */
+.t-chip {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  padding: 5px 12px;
+  border-radius: 100px;
+  white-space: nowrap;
+}
+
+.testimonial-card p.quote {
+  flex: 1;
+  font-size: 1.06rem;
+  line-height: 1.75;
+  text-align: left;
+  margin-bottom: 28px;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+.t-avatar {
+  flex-shrink: 0;
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #070a14;
+  background: var(--holo);
+}
+.testimonial-author .t-name { font-size: 0.98rem; }
+.testimonial-author .t-role { font-size: 0.82rem; }
+
+@media (max-width: 480px) {
+  .testimonial-card .glass-inner { padding: 26px 22px; }
+  .t-head { flex-wrap: wrap; }
+}
