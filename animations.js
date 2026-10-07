@@ -20,8 +20,8 @@
   }, { rootMargin: '-45% 0px -50% 0px' });
   byId.forEach((_, id) => { const s = document.getElementById(id); if (s) spy.observe(s); });
 
-  /* 2. Parallax do fundo (scroll + mouse) e saída suave do hero */
-  const orbs = [...document.querySelectorAll('.orb')];
+  /* 2. Parallax do fundo (mouse) e saída suave do hero */
+  const bgOrbs = document.querySelector('.bg-orbs');
   const heroContent = document.querySelector('.hero-content');
   let mx = 0, my = 0, cx = 0, cy = 0, ticking = false;
 
@@ -30,10 +30,8 @@
     cy += (my - cy) * 0.06;
     const sy = window.scrollY;
 
-    orbs.forEach((orb, i) => {
-      const depth = (i + 1) * 9;
-      orb.style.translate = `${cx * depth}px ${cy * depth - sy * 0.04 * (i + 1)}px`;
-    });
+    // só o contêiner acompanha o mouse; o movimento próprio de cada orb vem do CSS
+    if (bgOrbs) bgOrbs.style.translate = `${cx * 40}px ${cy * 40}px`;
 
     if (heroContent) {
       const p = Math.min(sy / 600, 1);

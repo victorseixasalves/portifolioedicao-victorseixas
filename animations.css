@@ -120,9 +120,49 @@
   }
 
   /* 10. Foto do "Sobre" com flutuação lenta */
-  .photo-frame { animation: floaty 6s ease-in-out infinite; }
+  .photo-frame { animation: holoShift 12s ease-in-out infinite, floaty 6s ease-in-out infinite; }
   @keyframes floaty {
     0%, 100% { transform: translateY(0); }
     50%      { transform: translateY(-10px); }
+  }
+
+  /* 11. Fundo vivo: cada orb flutua devagar em um trajeto próprio */
+  .bg-orbs { scale: 1.06; }
+  .orb { will-change: translate, scale; }
+  /* mantém o "float" e o "hueshift" originais e soma a deriva por cima */
+  .orb-a { animation: float 16s ease-in-out infinite,      hueshift 26s linear infinite, drift-a 22s ease-in-out infinite; }
+  .orb-b { animation: float 16s ease-in-out -5s infinite,  hueshift 26s linear infinite, drift-b 28s ease-in-out infinite; }
+  .orb-c { animation: float 16s ease-in-out -9s infinite,  hueshift 26s linear infinite, drift-c 25s ease-in-out infinite; }
+  .orb-d { animation: float 16s ease-in-out -3s infinite,  hueshift 26s linear infinite, drift-d 31s ease-in-out infinite; }
+  .orb-e { animation: float 16s ease-in-out -12s infinite, hueshift 26s linear infinite, drift-e 26s ease-in-out infinite; }
+
+  /* véu um pouco mais leve para o movimento das orbs aparecer mais */
+  .bg-scrim {
+    background: radial-gradient(ellipse at center, rgba(7,10,20,.22), rgba(7,10,20,.62) 78%);
+  }
+
+  @keyframes drift-a {
+    0%, 100% { translate: 0 0;        scale: 1; }
+    33%      { translate: 10vw 8vh;   scale: 1.18; }
+    66%      { translate: -6vw 14vh;  scale: 0.92; }
+  }
+  @keyframes drift-b {
+    0%, 100% { translate: 0 0;        scale: 1; }
+    40%      { translate: -12vw 6vh;  scale: 1.12; }
+    75%      { translate: 5vw -10vh;  scale: 0.9; }
+  }
+  @keyframes drift-c {
+    0%, 100% { translate: 0 0;        scale: 1; }
+    30%      { translate: 8vw -12vh;  scale: 0.9; }
+    70%      { translate: -10vw 5vh;  scale: 1.2; }
+  }
+  @keyframes drift-d {
+    0%, 100% { translate: 0 0;        scale: 1.05; }
+    50%      { translate: -9vw -9vh;  scale: 0.9; }
+  }
+  @keyframes drift-e {
+    0%, 100% { translate: 0 0;        scale: 1; }
+    35%      { translate: 12vw 10vh;  scale: 1.15; }
+    70%      { translate: -4vw -8vh;  scale: 0.95; }
   }
 }
