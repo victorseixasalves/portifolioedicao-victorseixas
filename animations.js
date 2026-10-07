@@ -190,6 +190,26 @@ document.querySelectorAll('.glass-border:not(.contact-form), .proj-card').forEac
   el.style.setProperty('--tilt-dir', i % 2 ? 'reverse' : 'normal');
 });
 
+/* ---------- BOTÃO FLUTUANTE DO WHATSAPP: aparece depois do topo, some na seção de contato ---------- */
+(() => {
+  const fab = document.getElementById('whatsFab');
+  if (!fab) return;
+  let past = false, atContact = false;
+  const update = () => fab.classList.toggle('is-visible', past && !atContact);
+
+  addEventListener('scroll', () => {
+    const p = window.scrollY > 500;
+    if (p !== past) { past = p; update(); }
+  }, { passive: true });
+
+  const contact = document.getElementById('contato');
+  if (contact) {
+    new IntersectionObserver(([e]) => { atContact = e.isIntersecting; update(); },
+      { threshold: 0.2 }).observe(contact);
+  }
+  update();
+})();
+
 /* ---------- ANIMAÇÕES ---------- */
 (() => {
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
