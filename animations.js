@@ -178,6 +178,11 @@
   });
 })();
 
+/* ---------- BRILHO DE ESPELHO: cada card em um ponto diferente do ciclo ---------- */
+document.querySelectorAll('.glass-inner').forEach((el, i) => {
+  el.style.setProperty('--shine-delay', `-${((i * 1.9) % 7).toFixed(1)}s`);
+});
+
 /* ---------- ANIMAÇÕES ---------- */
 (() => {
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
