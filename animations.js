@@ -2,6 +2,69 @@
    animations.js — interações extras
    Carregue DEPOIS do script.js.
    ========================================================== */
+
+/* ---------- PORTFÓLIO: filtro por cliente + vídeo só carrega ao clicar ---------- */
+(() => {
+  const grid = document.getElementById('portfolioGrid');
+  if (!grid) return;
+  const cards = [...grid.querySelectorAll('.proj-card')];
+  const buttons = [...document.querySelectorAll('.filter-btn')];
+  const originals = new Map();   // guarda o HTML original da "capa" de cada vídeo
+  let playing = null;
+
+  // capa em alta resolução, quando existir (senão fica a hqdefault)
+  grid.querySelectorAll('.yt-facade img').forEach(img => {
+    const id = img.closest('.video-embed').dataset.yt;
+    const hi = new Image();
+    hi.onload = () => { if (hi.naturalWidth > 200) img.src = hi.src; };
+    hi.src = `https://i.ytimg.com/vi/${id}/maxresdefault.jpg`;
+  });
+
+  // contadores nos botões
+  buttons.forEach(b => {
+    const f = b.dataset.filter;
+    const n = f === 'all' ? cards.length : cards.filter(c => c.dataset.cat === f).length;
+    b.querySelector('.count').textContent = n;
+  });
+
+  const restore = () => {
+    if (!playing) return;
+    playing.innerHTML = originals.get(playing);
+    playing = null;
+  };
+
+  // clique na capa -> troca pelo player do YouTube (com autoplay)
+  grid.addEventListener('click', e => {
+    const facade = e.target.closest('.yt-facade');
+    if (!facade) return;
+    const box = facade.closest('.video-embed');
+    restore();
+    originals.set(box, box.innerHTML);
+    const f = document.createElement('iframe');
+    f.src = `https://www.youtube.com/embed/${box.dataset.yt}?autoplay=1&rel=0&playsinline=1`;
+    f.title = box.dataset.title;
+    f.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+    f.referrerPolicy = 'strict-origin-when-cross-origin';
+    f.allowFullscreen = true;
+    box.innerHTML = '';
+    box.appendChild(f);
+    playing = box;
+  });
+
+  // filtro
+  buttons.forEach(b => b.addEventListener('click', () => {
+    const f = b.dataset.filter;
+    restore();
+    buttons.forEach(x => {
+      const on = x === b;
+      x.classList.toggle('is-active', on);
+      x.setAttribute('aria-pressed', on);
+    });
+    cards.forEach(c => c.classList.toggle('is-hidden', f !== 'all' && c.dataset.cat !== f));
+  }));
+})();
+
+/* ---------- ANIMAÇÕES ---------- */
 (() => {
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (reduce) return;

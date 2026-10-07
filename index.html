@@ -131,22 +131,157 @@
   <div class="wrap">
     <span class="eyebrow reveal">Portfólio</span>
     <h2 class="reveal">Projetos</h2>
+    <!-- FILTRO POR CLIENTE: para classificar um vídeo, use data-cat="vortex" ou data-cat="patricia" no card -->
+    <div class="portfolio-filter reveal" role="group" aria-label="Filtrar projetos por cliente">
+      <button type="button" class="filter-btn is-active" data-filter="all" aria-pressed="true">Todos <span class="count"></span></button>
+      <button type="button" class="filter-btn" data-filter="vortex" aria-pressed="false">Vortex <span class="count"></span></button>
+      <button type="button" class="filter-btn" data-filter="patricia" aria-pressed="false">Dra. Patrícia Lopes <span class="count"></span></button>
+    </div>
     <div class="portfolio-grid" id="portfolioGrid">
-      <article class="proj-card reveal"><div class="video-embed"><iframe src="https://www.youtube.com/embed/hXIiGX-_vak" title="Projeto 01" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div></article>
-      <article class="proj-card reveal"><div class="video-embed"><iframe src="https://www.youtube.com/embed/yRnyYHhCENg" title="Projeto 02" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div></article>
-      <article class="proj-card reveal"><div class="video-embed"><iframe src="https://www.youtube.com/embed/ZqMfosTBV6k" title="Projeto 03" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div></article>
-      <article class="proj-card reveal"><div class="video-embed"><iframe src="https://www.youtube.com/embed/8jmt2JnZhjE" title="Projeto 04" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div></article>
-      <article class="proj-card reveal"><div class="video-embed"><iframe src="https://www.youtube.com/embed/ahKdRrc99kk" title="Projeto 05" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div></article>
-      <article class="proj-card reveal"><div class="video-embed"><iframe src="https://www.youtube.com/embed/0SQvF-A_33Q" title="Projeto 06" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div></article>
-      <article class="proj-card reveal"><div class="video-embed"><iframe src="https://www.youtube.com/embed/4mKqb1EVEc8" title="Projeto 07" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div></article>
-      <article class="proj-card reveal"><div class="video-embed"><iframe src="https://www.youtube.com/embed/NbsYTlZuZTc" title="Projeto 08" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div></article>
-      <article class="proj-card reveal"><div class="video-embed"><iframe src="https://www.youtube.com/embed/76bu0tH5Ikc" title="Projeto 09" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div></article>
-      <article class="proj-card reveal"><div class="video-embed"><iframe src="https://www.youtube.com/embed/0AjiBz49fdE" title="Projeto 10" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div></article>
-      <article class="proj-card reveal"><div class="video-embed"><iframe src="https://www.youtube.com/embed/8x5ZiEtIa_4" title="Projeto 11" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div></article>
-      <article class="proj-card reveal"><div class="video-embed"><iframe src="https://www.youtube.com/embed/cOM4LIdlpAE" title="Projeto 12" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div></article>
-      <article class="proj-card reveal"><div class="video-embed"><iframe src="https://www.youtube.com/embed/4CdEoxDNkzI" title="Projeto 13" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div></article>
-      <article class="proj-card reveal"><div class="video-embed"><iframe src="https://www.youtube.com/embed/Vr0DxYpE0pg" title="Projeto 14" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div></article>
-      <article class="proj-card reveal"><div class="video-embed"><iframe src="https://www.youtube.com/embed/GCMdfHvZlwQ" title="Projeto 15" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div></article>
+      <article class="proj-card reveal" data-cat="vortex">
+        <div class="video-embed" data-yt="hXIiGX-_vak" data-title="Projeto 01">
+          <button type="button" class="yt-facade" aria-label="Reproduzir Projeto 01">
+            <img src="https://i.ytimg.com/vi/hXIiGX-_vak/hqdefault.jpg" alt="" loading="lazy">
+            <span class="yt-play"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></span>
+          </button>
+        </div>
+        <div class="proj-meta"><span class="proj-tag">Vortex</span></div>
+      </article>
+      <article class="proj-card reveal" data-cat="vortex">
+        <div class="video-embed" data-yt="yRnyYHhCENg" data-title="Projeto 02">
+          <button type="button" class="yt-facade" aria-label="Reproduzir Projeto 02">
+            <img src="https://i.ytimg.com/vi/yRnyYHhCENg/hqdefault.jpg" alt="" loading="lazy">
+            <span class="yt-play"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></span>
+          </button>
+        </div>
+        <div class="proj-meta"><span class="proj-tag">Vortex</span></div>
+      </article>
+      <article class="proj-card reveal" data-cat="vortex">
+        <div class="video-embed" data-yt="kZZKm-2k1XE" data-title="Projeto 03">
+          <button type="button" class="yt-facade" aria-label="Reproduzir Projeto 03">
+            <img src="https://i.ytimg.com/vi/kZZKm-2k1XE/hqdefault.jpg" alt="" loading="lazy">
+            <span class="yt-play"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></span>
+          </button>
+        </div>
+        <div class="proj-meta"><span class="proj-tag">Vortex</span></div>
+      </article>
+      <article class="proj-card reveal" data-cat="patricia">
+        <div class="video-embed" data-yt="ZqMfosTBV6k" data-title="Projeto 04">
+          <button type="button" class="yt-facade" aria-label="Reproduzir Projeto 04">
+            <img src="https://i.ytimg.com/vi/ZqMfosTBV6k/hqdefault.jpg" alt="" loading="lazy">
+            <span class="yt-play"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></span>
+          </button>
+        </div>
+        <div class="proj-meta"><span class="proj-tag">Dra. Patrícia Lopes</span></div>
+      </article>
+      <article class="proj-card reveal" data-cat="patricia">
+        <div class="video-embed" data-yt="8jmt2JnZhjE" data-title="Projeto 05">
+          <button type="button" class="yt-facade" aria-label="Reproduzir Projeto 05">
+            <img src="https://i.ytimg.com/vi/8jmt2JnZhjE/hqdefault.jpg" alt="" loading="lazy">
+            <span class="yt-play"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></span>
+          </button>
+        </div>
+        <div class="proj-meta"><span class="proj-tag">Dra. Patrícia Lopes</span></div>
+      </article>
+      <article class="proj-card reveal" data-cat="patricia">
+        <div class="video-embed" data-yt="ahKdRrc99kk" data-title="Projeto 06">
+          <button type="button" class="yt-facade" aria-label="Reproduzir Projeto 06">
+            <img src="https://i.ytimg.com/vi/ahKdRrc99kk/hqdefault.jpg" alt="" loading="lazy">
+            <span class="yt-play"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></span>
+          </button>
+        </div>
+        <div class="proj-meta"><span class="proj-tag">Dra. Patrícia Lopes</span></div>
+      </article>
+      <article class="proj-card reveal" data-cat="patricia">
+        <div class="video-embed" data-yt="0SQvF-A_33Q" data-title="Projeto 07">
+          <button type="button" class="yt-facade" aria-label="Reproduzir Projeto 07">
+            <img src="https://i.ytimg.com/vi/0SQvF-A_33Q/hqdefault.jpg" alt="" loading="lazy">
+            <span class="yt-play"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></span>
+          </button>
+        </div>
+        <div class="proj-meta"><span class="proj-tag">Dra. Patrícia Lopes</span></div>
+      </article>
+      <article class="proj-card reveal" data-cat="patricia">
+        <div class="video-embed" data-yt="4mKqb1EVEc8" data-title="Projeto 08">
+          <button type="button" class="yt-facade" aria-label="Reproduzir Projeto 08">
+            <img src="https://i.ytimg.com/vi/4mKqb1EVEc8/hqdefault.jpg" alt="" loading="lazy">
+            <span class="yt-play"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></span>
+          </button>
+        </div>
+        <div class="proj-meta"><span class="proj-tag">Dra. Patrícia Lopes</span></div>
+      </article>
+      <article class="proj-card reveal" data-cat="patricia">
+        <div class="video-embed" data-yt="NbsYTlZuZTc" data-title="Projeto 09">
+          <button type="button" class="yt-facade" aria-label="Reproduzir Projeto 09">
+            <img src="https://i.ytimg.com/vi/NbsYTlZuZTc/hqdefault.jpg" alt="" loading="lazy">
+            <span class="yt-play"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></span>
+          </button>
+        </div>
+        <div class="proj-meta"><span class="proj-tag">Dra. Patrícia Lopes</span></div>
+      </article>
+      <article class="proj-card reveal" data-cat="patricia">
+        <div class="video-embed" data-yt="76bu0tH5Ikc" data-title="Projeto 10">
+          <button type="button" class="yt-facade" aria-label="Reproduzir Projeto 10">
+            <img src="https://i.ytimg.com/vi/76bu0tH5Ikc/hqdefault.jpg" alt="" loading="lazy">
+            <span class="yt-play"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></span>
+          </button>
+        </div>
+        <div class="proj-meta"><span class="proj-tag">Dra. Patrícia Lopes</span></div>
+      </article>
+      <article class="proj-card reveal" data-cat="patricia">
+        <div class="video-embed" data-yt="0AjiBz49fdE" data-title="Projeto 11">
+          <button type="button" class="yt-facade" aria-label="Reproduzir Projeto 11">
+            <img src="https://i.ytimg.com/vi/0AjiBz49fdE/hqdefault.jpg" alt="" loading="lazy">
+            <span class="yt-play"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></span>
+          </button>
+        </div>
+        <div class="proj-meta"><span class="proj-tag">Dra. Patrícia Lopes</span></div>
+      </article>
+      <article class="proj-card reveal" data-cat="patricia">
+        <div class="video-embed" data-yt="8x5ZiEtIa_4" data-title="Projeto 12">
+          <button type="button" class="yt-facade" aria-label="Reproduzir Projeto 12">
+            <img src="https://i.ytimg.com/vi/8x5ZiEtIa_4/hqdefault.jpg" alt="" loading="lazy">
+            <span class="yt-play"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></span>
+          </button>
+        </div>
+        <div class="proj-meta"><span class="proj-tag">Dra. Patrícia Lopes</span></div>
+      </article>
+      <article class="proj-card reveal" data-cat="patricia">
+        <div class="video-embed" data-yt="cOM4LIdlpAE" data-title="Projeto 13">
+          <button type="button" class="yt-facade" aria-label="Reproduzir Projeto 13">
+            <img src="https://i.ytimg.com/vi/cOM4LIdlpAE/hqdefault.jpg" alt="" loading="lazy">
+            <span class="yt-play"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></span>
+          </button>
+        </div>
+        <div class="proj-meta"><span class="proj-tag">Dra. Patrícia Lopes</span></div>
+      </article>
+      <article class="proj-card reveal" data-cat="patricia">
+        <div class="video-embed" data-yt="4CdEoxDNkzI" data-title="Projeto 14">
+          <button type="button" class="yt-facade" aria-label="Reproduzir Projeto 14">
+            <img src="https://i.ytimg.com/vi/4CdEoxDNkzI/hqdefault.jpg" alt="" loading="lazy">
+            <span class="yt-play"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></span>
+          </button>
+        </div>
+        <div class="proj-meta"><span class="proj-tag">Dra. Patrícia Lopes</span></div>
+      </article>
+      <article class="proj-card reveal" data-cat="patricia">
+        <div class="video-embed" data-yt="Vr0DxYpE0pg" data-title="Projeto 15">
+          <button type="button" class="yt-facade" aria-label="Reproduzir Projeto 15">
+            <img src="https://i.ytimg.com/vi/Vr0DxYpE0pg/hqdefault.jpg" alt="" loading="lazy">
+            <span class="yt-play"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></span>
+          </button>
+        </div>
+        <div class="proj-meta"><span class="proj-tag">Dra. Patrícia Lopes</span></div>
+      </article>
+      <article class="proj-card reveal" data-cat="patricia">
+        <div class="video-embed" data-yt="GCMdfHvZlwQ" data-title="Projeto 16">
+          <button type="button" class="yt-facade" aria-label="Reproduzir Projeto 16">
+            <img src="https://i.ytimg.com/vi/GCMdfHvZlwQ/hqdefault.jpg" alt="" loading="lazy">
+            <span class="yt-play"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></span>
+          </button>
+        </div>
+        <div class="proj-meta"><span class="proj-tag">Dra. Patrícia Lopes</span></div>
+      </article>
     </div>
   </div>
 </section>
