@@ -183,6 +183,13 @@ document.querySelectorAll('.glass-inner').forEach((el, i) => {
   el.style.setProperty('--shine-delay', `-${((i * 1.9) % 7).toFixed(1)}s`);
 });
 
+/* ---------- INCLINAÇÃO NATURAL (celular): cada card balança no seu próprio ritmo ---------- */
+document.querySelectorAll('.glass-border:not(.contact-form), .proj-card').forEach((el, i) => {
+  el.style.setProperty('--tilt-dur', `${(8 + (i * 1.3) % 4).toFixed(1)}s`);
+  el.style.setProperty('--tilt-offset', `${((i * 0.7) % 2.5).toFixed(1)}s`);
+  el.style.setProperty('--tilt-dir', i % 2 ? 'reverse' : 'normal');
+});
+
 /* ---------- ANIMAÇÕES ---------- */
 (() => {
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -253,20 +260,27 @@ document.querySelectorAll('.glass-inner').forEach((el, i) => {
     });
   });
 
-  /* 4. Inclinação 3D sutil nos cards de serviço e depoimento */
-  document.querySelectorAll('.service-card, .testimonial-card').forEach(card => {
+  /* 4. Inclinação 3D em todos os cards (cards de vidro + vídeos do portfólio) */
+  document.querySelectorAll('.glass-border:not(.contact-form), .proj-card').forEach(card => {
     card.addEventListener('mousemove', e => {
+      if (card.querySelector('iframe')) return;            // vídeo tocando: não mexe
       const r = card.getBoundingClientRect();
       const x = (e.clientX - r.left) / r.width - 0.5;
       const y = (e.clientY - r.top) / r.height - 0.5;
-      card.style.transition = 'transform 0.15s ease-out';
+      const max = Math.max(2, Math.min(6, 1800 / r.width)); // cards largos inclinam menos
+      card.style.transition =
+        'transform 0.15s ease-out, box-shadow 0.35s ease, background-position 0.6s ease';
       card.style.transform =
-        `perspective(900px) rotateX(${(-y * 6).toFixed(2)}deg) rotateY(${(x * 6).toFixed(2)}deg) translateY(-4px)`;
+        `perspective(900px) rotateX(${(-y * max).toFixed(2)}deg) rotateY(${(x * max).toFixed(2)}deg) translateY(-4px)`;
     });
     card.addEventListener('mouseleave', () => {
       card.style.transition = '';
       card.style.transform = '';
     });
+    // ao dar play num vídeo, o card volta ao normal
+    card.addEventListener('click', () => setTimeout(() => {
+      if (card.querySelector('iframe')) card.style.transform = '';
+    }, 0));
   });
 
   /* 5. Botões "magnéticos": seguem o cursor de leve */

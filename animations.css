@@ -689,3 +689,25 @@
   .about-text p,
   .contact-info > p { text-align: left; }
 }
+
+/* ==========================================================
+   Celular/tablet: inclinação 3D automática (sem precisar tocar)
+   Cada card balança devagar no seu ritmo, só enquanto está na tela
+   (a classe .in vem do "revelar ao rolar"), para não pesar a bateria.
+   ========================================================== */
+@media (prefers-reduced-motion: no-preference) and (hover: none) {
+  .glass-border.in:not(.contact-form),
+  .reveal.in .glass-border:not(.contact-form),
+  .proj-card.in {
+    animation: tilt-idle var(--tilt-dur, 9s) ease-in-out calc(0.8s + var(--tilt-offset, 0s)) infinite var(--tilt-dir, normal);
+  }
+  .proj-card:has(iframe) { animation: none; }   /* vídeo tocando: fica parado */
+
+  @keyframes tilt-idle {
+    0%, 100% { transform: perspective(900px) rotateX(0deg)    rotateY(0deg); }
+    20%      { transform: perspective(900px) rotateX(3deg)    rotateY(-4deg); }
+    45%      { transform: perspective(900px) rotateX(-2deg)   rotateY(3.5deg); }
+    70%      { transform: perspective(900px) rotateX(2.5deg)  rotateY(4deg); }
+    85%      { transform: perspective(900px) rotateX(-1deg)   rotateY(-2deg); }
+  }
+}
