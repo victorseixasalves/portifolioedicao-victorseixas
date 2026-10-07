@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://victorseixasalves.github.io/portfolioedicao-victorseixas/sitemap.xml
+Sitemap: https://victorseixasalves.github.io/portifolioedicao-victorseixas/sitemap.xml
