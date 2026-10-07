@@ -51,17 +51,61 @@
     playing = box;
   });
 
-  // filtro
+  // filtro + "Ver mais"
+  const LIMIT = 8;                       // quantos vídeos aparecem antes do "Ver mais"
+  const moreWrap = document.getElementById('portfolioMoreWrap');
+  const moreBtn = document.getElementById('portfolioMore');
+  const countEl = document.getElementById('portfolioCount');
+  let filter = 'all';
+  let expanded = false;
+
+  const render = (animateNew = false) => {
+    const matches = cards.filter(c => filter === 'all' || c.dataset.cat === filter);
+    const shown = expanded ? matches : matches.slice(0, LIMIT);
+    let delay = 0;
+
+    cards.forEach(c => {
+      const show = shown.includes(c);
+      const wasHidden = c.classList.contains('is-hidden');
+      c.classList.toggle('is-hidden', !show);
+      // entrada em sequência para os cards que acabaram de aparecer
+      if (show && wasHidden && animateNew) {
+        c.style.transitionDelay = `${delay * 70}ms`;
+        delay++;
+        setTimeout(() => { c.style.transitionDelay = ''; }, 1400);
+      }
+    });
+
+    const hasMore = matches.length > LIMIT;
+    moreWrap.hidden = !hasMore;
+    if (hasMore) {
+      countEl.textContent = `Mostrando ${shown.length} de ${matches.length} projetos`;
+      moreBtn.querySelector('.label').textContent =
+        expanded ? 'Ver menos' : `Ver mais ${matches.length - LIMIT} projetos`;
+      moreBtn.setAttribute('aria-expanded', expanded);
+    }
+  };
+
   buttons.forEach(b => b.addEventListener('click', () => {
-    const f = b.dataset.filter;
+    filter = b.dataset.filter;
+    expanded = false;
     restore();
     buttons.forEach(x => {
       const on = x === b;
       x.classList.toggle('is-active', on);
       x.setAttribute('aria-pressed', on);
     });
-    cards.forEach(c => c.classList.toggle('is-hidden', f !== 'all' && c.dataset.cat !== f));
+    render(true);
   }));
+
+  moreBtn.addEventListener('click', () => {
+    expanded = !expanded;
+    restore();
+    render(true);
+    if (!expanded) document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth' });
+  });
+
+  render();
 })();
 
 /* ---------- CONTATO: envio pelo WhatsApp ou e-mail, com validação ---------- */

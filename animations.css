@@ -583,3 +583,23 @@
     75% { translate: 6px 0; }
   }
 }
+
+
+/* ==========================================================
+   Portfólio: "Ver mais"
+   ========================================================== */
+.portfolio-more {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  margin-top: 40px;
+}
+.portfolio-more[hidden] { display: none; }
+.portfolio-count {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+  color: var(--text-dim);
+}
+.portfolio-more .btn svg { transition: transform 0.3s ease; }
+.portfolio-more .btn[aria-expanded="true"] svg { transform: rotate(180deg); }
