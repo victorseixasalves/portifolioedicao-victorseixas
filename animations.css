@@ -166,3 +166,122 @@
     70%      { translate: -4vw -8vh;  scale: 0.95; }
   }
 }
+
+
+/* ==========================================================
+   Cards de informações (Sobre)
+   ========================================================== */
+
+/* Bug original: ".fact { padding:18px 20px }" sobrescrevia o padding:1px do
+   .glass-border e deixava a borda de gradiente grossa. Aqui volta a ser fina. */
+.facts-row .fact { padding: 1px; }
+
+.fact .glass-inner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 22px;
+}
+
+.fact-icon {
+  flex-shrink: 0;
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  color: var(--cyan);
+  background: linear-gradient(145deg, rgba(139, 92, 246, 0.30), rgba(56, 189, 248, 0.10));
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  box-shadow: 0 8px 22px -10px rgba(139, 92, 246, 0.7);
+}
+
+.fact-body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+.fact-body .fact-label { margin-bottom: 0; }
+.fact-body .fact-value { line-height: 1.35; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .fact {
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                box-shadow 0.35s ease,
+                background-position 0.6s ease;
+  }
+  .fact:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 36px -14px rgba(56, 189, 248, 0.45);
+  }
+  .fact-icon { transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); }
+  .fact:hover .fact-icon { transform: rotate(-8deg) scale(1.1); }
+}
+
+
+/* ==========================================================
+   Cards de ferramentas
+   ========================================================== */
+
+/* Bug original: ".tools-main { margin-bottom:20px }" está no .glass-inner e criava
+   uma faixa de gradiente grossa embaixo do card. Zerado aqui. */
+.glass-inner.tools-main {
+  margin-bottom: 0;
+  gap: 32px;
+  padding: 36px 40px;
+}
+
+/* Logos dentro de "azulejos" para ficarem todos com a mesma presença */
+.tool-logo {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.10), rgba(255, 255, 255, 0.03));
+  border: 1px solid rgba(255, 255, 255, 0.10);
+}
+.tool-logo.tool-logo--lg {
+  width: 92px;
+  height: 92px;
+  padding: 21px;
+  border-radius: 26px;
+  box-shadow: 0 0 46px -10px rgba(139, 92, 246, 0.7);
+}
+.tool-logo.tool-logo--sm {
+  width: 58px;
+  height: 58px;
+  padding: 12px;
+  border-radius: 17px;
+}
+
+/* Ferramentas de apoio ocupam a largura toda, em duas colunas iguais */
+.tools-secondary {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+}
+.tool-chip .glass-inner {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 20px 24px;
+}
+.tool-text { display: flex; flex-direction: column; gap: 3px; }
+.tool-chip .name { font-size: 1rem; }
+.tool-chip .desc { font-size: 0.84rem; }
+
+@media (max-width: 720px) {
+  .tools-secondary { grid-template-columns: 1fr; }
+  .glass-inner.tools-main { padding: 28px 24px; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .tool-chip {
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                box-shadow 0.35s ease,
+                background-position 0.6s ease;
+  }
+  .tool-chip:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 36px -14px rgba(139, 92, 246, 0.5);
+  }
+}
