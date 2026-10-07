@@ -14,10 +14,16 @@
     a.addEventListener('click', () => navbar.classList.remove('nav-open'));
   });
 
-  // Revelar ao rolar
+  // Revelar ao rolar (repete sempre que o elemento entra na tela)
   const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
-  }, { threshold: 0.12 });
+    entries.forEach(e => {
+      if (e.intersectionRatio >= 0.12) {
+        e.target.classList.add('in');
+      } else if (e.intersectionRatio === 0) {
+        e.target.classList.remove('in');
+      }
+    });
+  }, { threshold: [0, 0.12] });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
   // Variação de cor do fundo na seção Ferramentas

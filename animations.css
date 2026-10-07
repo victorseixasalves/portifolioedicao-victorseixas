@@ -63,10 +63,7 @@
   @keyframes shimmer {
     to { background-position: -200% 0; }
   }
-  .proj-card {
-    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease;
-  }
-  .proj-card:hover {
+  .proj-card.in:hover {
     transform: translateY(-6px);
     box-shadow: 0 18px 50px -12px rgba(139, 92, 246, 0.45);
   }
