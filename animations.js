@@ -198,7 +198,8 @@ document.querySelectorAll('.glass-border:not(.contact-form), .proj-card').forEac
   const update = () => fab.classList.toggle('is-visible', past && !atContact);
 
   addEventListener('scroll', () => {
-    const p = window.scrollY > 500;
+    const y = window.scrollY || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    const p = y > 500;
     if (p !== past) { past = p; update(); }
   }, { passive: true });
 
