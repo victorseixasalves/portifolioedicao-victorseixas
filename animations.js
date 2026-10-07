@@ -64,6 +64,76 @@
   }));
 })();
 
+/* ---------- CONTATO: envio pelo WhatsApp ou e-mail, com validação ---------- */
+(() => {
+  const form = document.getElementById('contactForm');
+  if (!form) return;
+
+  const WHATS = '5531983342557';
+  const MAIL  = 'vseixasalves@gmail.com';
+  const nameEl = document.getElementById('name');
+  const emailEl = document.getElementById('email');
+  const msgEl = document.getElementById('message');
+  const status = document.getElementById('formStatus');
+
+  const setStatus = (text, kind) => {
+    status.textContent = text;
+    status.className = 'form-status' + (kind ? ' is-' + kind : '');
+  };
+
+  [nameEl, emailEl, msgEl].forEach(el => el.addEventListener('input', () => {
+    el.classList.remove('is-invalid');
+    setStatus('');
+  }));
+
+  // devolve os dados se estiver tudo certo; senão marca os campos e devolve null
+  const read = () => {
+    const data = {
+      name: nameEl.value.trim(),
+      email: emailEl.value.trim(),
+      message: msgEl.value.trim(),
+      type: (form.querySelector('input[name="type"]:checked') || {}).value || 'Outro'
+    };
+    const bad = [];
+    if (!data.name) bad.push(nameEl);
+    if (data.email && !emailEl.validity.valid) bad.push(emailEl);
+    if (!data.message) bad.push(msgEl);
+
+    [nameEl, emailEl, msgEl].forEach(el => el.classList.toggle('is-invalid', bad.includes(el)));
+    if (bad.length) {
+      const emailOnly = bad.length === 1 && bad[0] === emailEl;
+      setStatus(emailOnly ? 'Esse e-mail parece incompleto. Confira ou deixe em branco.' : 'Preencha seu nome e a mensagem para continuar.', 'error');
+      bad[0].focus();
+      return null;
+    }
+    return data;
+  };
+
+  document.getElementById('sendWhats').addEventListener('click', () => {
+    const d = read();
+    if (!d) return;
+    const text =
+      `Olá, Victor! Me chamo ${d.name}.\n` +
+      `Preciso de: ${d.type}\n\n${d.message}` +
+      (d.email ? `\n\nMeu e-mail: ${d.email}` : '');
+    const url = `https://wa.me/${WHATS}?text=${encodeURIComponent(text)}`;
+    const w = window.open(url, '_blank');
+    if (w) w.opener = null; else window.location.href = url;
+    setStatus('Abri o WhatsApp com a mensagem pronta. É só enviar por lá.', 'ok');
+  });
+
+  document.getElementById('sendMail').addEventListener('click', () => {
+    const d = read();
+    if (!d) return;
+    const subject = encodeURIComponent(`Contato via portfólio — ${d.name}`);
+    const body = encodeURIComponent(
+      `Nome: ${d.name}\nE-mail: ${d.email || '(não informado)'}\nTipo de vídeo: ${d.type}\n\nMensagem:\n${d.message}`
+    );
+    window.location.href = `mailto:${MAIL}?subject=${subject}&body=${body}`;
+    setStatus('Abri seu app de e-mail com a mensagem pronta. É só enviar por lá.', 'ok');
+  });
+})();
+
 /* ---------- ANIMAÇÕES ---------- */
 (() => {
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;

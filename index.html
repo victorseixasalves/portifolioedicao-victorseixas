@@ -378,22 +378,34 @@
         </div>
       </div>
       <div class="reveal">
-        <form class="contact-form glass-border" id="contactForm">
+        <form class="contact-form glass-border" id="contactForm" novalidate>
           <div class="glass-inner">
             <div class="form-field">
               <label for="name">Nome</label>
-              <input type="text" id="name" name="name" required placeholder="Como posso te chamar?">
+              <input type="text" id="name" name="name" required autocomplete="name" placeholder="Como posso te chamar?">
             </div>
             <div class="form-field">
-              <label for="email">E-mail</label>
-              <input type="email" id="email" name="email" required placeholder="seuemail@exemplo.com">
+              <label for="email">E-mail <span class="optional">(opcional)</span></label>
+              <input type="email" id="email" name="email" autocomplete="email" placeholder="seuemail@exemplo.com">
             </div>
+            <fieldset class="type-field">
+              <legend>Tipo de vídeo</legend>
+              <div class="type-options">
+                <label class="type-pill"><input type="radio" name="type" value="Redes sociais" checked><span>Redes sociais</span></label>
+                <label class="type-pill"><input type="radio" name="type" value="Vídeo institucional"><span>Institucional</span></label>
+                <label class="type-pill"><input type="radio" name="type" value="Outro"><span>Outro</span></label>
+              </div>
+            </fieldset>
             <div class="form-field">
               <label for="message">Mensagem</label>
               <textarea id="message" name="message" rows="5" required placeholder="Me conta um pouco sobre o vídeo que você precisa..."></textarea>
             </div>
-            <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">Enviar mensagem</button>
-            <p class="form-note">Ao enviar, seu app de e-mail abre com a mensagem pronta — é só confirmar o envio.</p>
+            <div class="form-actions">
+              <button type="button" class="btn btn-primary" id="sendWhats"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15L2 22l5.2-1.4A10 10 0 1012 2zm0 18.2a8.2 8.2 0 01-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1112 20.2z"/></svg> Enviar pelo WhatsApp</button>
+              <button type="button" class="btn btn-ghost" id="sendMail"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 6l10 7 10-7"/></svg> Enviar por e-mail</button>
+            </div>
+            <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+            <p class="form-note">A mensagem abre pronta no WhatsApp ou no seu app de e-mail. É só conferir e enviar.</p>
           </div>
         </form>
       </div>

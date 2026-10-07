@@ -495,3 +495,91 @@
   .testimonial-card .glass-inner { padding: 26px 22px; }
   .t-head { flex-wrap: wrap; }
 }
+
+
+/* ==========================================================
+   Formulário de contato
+   ========================================================== */
+
+.form-field label .optional {
+  text-transform: none;
+  letter-spacing: 0;
+  opacity: 0.7;
+}
+
+/* tipo de vídeo: opções em "pílulas" */
+.type-field {
+  border: 0;
+  padding: 0;
+  margin: 0 0 18px;
+  min-width: 0;
+}
+.type-field legend {
+  padding: 0;
+  margin-bottom: 10px;
+  font-size: 0.78rem;
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.type-options { display: flex; flex-wrap: wrap; gap: 10px; }
+.type-pill { position: relative; cursor: pointer; }
+.type-pill input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+.type-pill span {
+  display: inline-block;
+  padding: 9px 16px;
+  border-radius: 100px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  font-weight: 600;
+  transition: color 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+}
+.type-pill:hover span { color: var(--text); background: rgba(255, 255, 255, 0.09); }
+.type-pill input:checked + span {
+  color: #070a14;
+  background: var(--holo);
+  border-color: transparent;
+}
+.type-pill input:focus-visible + span { outline: 2px solid var(--cyan); outline-offset: 3px; }
+
+/* botões de envio */
+.form-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 4px; }
+.form-actions .btn { flex: 1 1 200px; justify-content: center; }
+
+/* mensagens de retorno */
+.form-status {
+  min-height: 1.4em;
+  margin-top: 14px;
+  font-size: 0.88rem;
+  text-align: left;
+  text-align-last: left;
+}
+.form-status.is-error { color: var(--pink); }
+.form-status.is-ok { color: var(--cyan); }
+
+/* campos com erro */
+.form-field input.is-invalid,
+.form-field textarea.is-invalid {
+  border-color: var(--pink);
+  box-shadow: 0 0 0 3px rgba(244, 114, 182, 0.18);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .form-field input.is-invalid,
+  .form-field textarea.is-invalid { animation: shake 0.35s ease; }
+  @keyframes shake {
+    0%, 100% { translate: 0 0; }
+    25% { translate: -6px 0; }
+    75% { translate: 6px 0; }
+  }
+}
