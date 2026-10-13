@@ -197,7 +197,7 @@ document.querySelectorAll('.glass-inner').forEach((el, i) => {
 });
 
 /* ---------- INCLINAÇÃO NATURAL (celular): cada card balança no seu próprio ritmo ---------- */
-document.querySelectorAll('.glass-border:not(.contact-form), .proj-card').forEach((el, i) => {
+document.querySelectorAll('.glass-border:not(.contact-form)').forEach((el, i) => {
   el.style.setProperty('--tilt-dur', `${(8 + (i * 1.3) % 4).toFixed(1)}s`);
   el.style.setProperty('--tilt-offset', `${((i * 0.7) % 2.5).toFixed(1)}s`);
   el.style.setProperty('--tilt-dir', i % 2 ? 'reverse' : 'normal');
@@ -295,7 +295,7 @@ document.querySelectorAll('.glass-border:not(.contact-form), .proj-card').forEac
   });
 
   /* 4. Inclinação 3D em todos os cards (cards de vidro + vídeos do portfólio) */
-  document.querySelectorAll('.glass-border:not(.contact-form), .proj-card').forEach(card => {
+  document.querySelectorAll('.glass-border:not(.contact-form)').forEach(card => {
     card.addEventListener('mousemove', e => {
       if (card.querySelector('iframe')) return;            // vídeo tocando: não mexe
       const r = card.getBoundingClientRect();
