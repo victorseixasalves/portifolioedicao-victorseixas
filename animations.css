@@ -865,5 +865,11 @@
 
 @media (max-width: 720px) {
   .nav-cta { gap: 10px; }
+  .lang-switch, .hamburger { flex-shrink: 0; }   /* nunca encolhe nem some, mesmo com o logo grande */
   .lang-btn { padding: 9px 12px; }
+}
+/* telas bem estreitas: o botão vira só "globo + código" */
+@media (max-width: 400px) {
+  .lang-btn { padding: 9px 10px; gap: 6px; }
+  .lang-btn svg:last-child { display: none; }
 }
