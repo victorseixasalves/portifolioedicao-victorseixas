@@ -790,3 +790,80 @@
 @media (max-width: 480px) {
   .whats-fab { width: 56px; height: 56px; right: 16px; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); }
 }
+
+
+/* ==========================================================
+   Seletor de idioma (menu)
+   ========================================================== */
+.lang-switch { position: relative; }
+
+.lang-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 100px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text);
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: background 0.25s ease, border-color 0.25s ease;
+}
+.lang-btn:hover { background: rgba(255, 255, 255, 0.09); }
+.lang-btn svg:last-child { transition: transform 0.25s ease; }
+.lang-switch.is-open .lang-btn { border-color: rgba(56, 189, 248, 0.5); }
+.lang-switch.is-open .lang-btn svg:last-child { transform: rotate(180deg); }
+
+.lang-menu {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 12px);
+  min-width: 176px;
+  padding: 6px;
+  border-radius: 16px;
+  background: rgba(13, 18, 38, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(16px) saturate(150%);
+  -webkit-backdrop-filter: blur(16px) saturate(150%);
+  box-shadow: 0 18px 40px -12px rgba(0, 0, 0, 0.6);
+  z-index: 10;
+}
+.lang-menu[hidden] { display: none; }
+
+.lang-opt {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 12px;
+  border: 0;
+  border-radius: 10px;
+  background: none;
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  text-align: left;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.lang-opt .code {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--text-dim);
+}
+.lang-opt:hover { background: rgba(255, 255, 255, 0.07); color: var(--text); }
+.lang-opt.is-active { color: var(--text); background: rgba(139, 92, 246, 0.18); }
+.lang-opt.is-active .code { color: var(--cyan); }
+
+@media (prefers-reduced-motion: no-preference) {
+  .lang-menu:not([hidden]) { animation: langIn 0.22s ease-out; }
+  @keyframes langIn {
+    from { opacity: 0; transform: translateY(-6px) scale(0.97); }
+    to   { opacity: 1; transform: none; }
+  }
+}
+
+@media (max-width: 720px) {
+  .nav-cta { gap: 10px; }
+  .lang-btn { padding: 9px 12px; }
+}

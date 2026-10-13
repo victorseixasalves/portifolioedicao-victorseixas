@@ -3,6 +3,9 @@
    Carregue DEPOIS do script.js.
    ========================================================== */
 
+// tradução: usa o i18n.js quando estiver carregado; senão cai no texto em português
+const __t = (key, vars, fallback) => (window.I18N ? window.I18N.t(key, vars) : fallback);
+
 /* ---------- PORTFÓLIO: filtro por cliente + vídeo só carrega ao clicar ---------- */
 (() => {
   const grid = document.getElementById('portfolioGrid');
@@ -79,9 +82,9 @@
     const hasMore = matches.length > LIMIT;
     moreWrap.hidden = !hasMore;
     if (hasMore) {
-      countEl.textContent = `Mostrando ${shown.length} de ${matches.length} projetos`;
+      countEl.textContent = __t('pf.count', { shown: shown.length, total: matches.length }, `Mostrando ${shown.length} de ${matches.length} projetos`);
       moreBtn.querySelector('.label').textContent =
-        expanded ? 'Ver menos' : `Ver mais ${matches.length - LIMIT} projetos`;
+        expanded ? __t('pf.less', null, 'Ver menos') : __t('pf.more', { n: matches.length - LIMIT }, `Ver mais ${matches.length - LIMIT} projetos`);
       moreBtn.setAttribute('aria-expanded', expanded);
     }
   };
@@ -106,6 +109,7 @@
   });
 
   render();
+  document.addEventListener('i18n:change', () => render());   // troca de idioma
 })();
 
 /* ---------- CONTATO: envio pelo WhatsApp ou e-mail, com validação ---------- */
@@ -124,6 +128,8 @@
     status.textContent = text;
     status.className = 'form-status' + (kind ? ' is-' + kind : '');
   };
+
+  document.addEventListener('i18n:change', () => setStatus(''));
 
   [nameEl, emailEl, msgEl].forEach(el => el.addEventListener('input', () => {
     el.classList.remove('is-invalid');
@@ -146,7 +152,7 @@
     [nameEl, emailEl, msgEl].forEach(el => el.classList.toggle('is-invalid', bad.includes(el)));
     if (bad.length) {
       const emailOnly = bad.length === 1 && bad[0] === emailEl;
-      setStatus(emailOnly ? 'Esse e-mail parece incompleto. Confira ou deixe em branco.' : 'Preencha seu nome e a mensagem para continuar.', 'error');
+      setStatus(emailOnly ? __t('form.errEmail', null, 'Esse e-mail parece incompleto. Confira ou deixe em branco.') : __t('form.errReq', null, 'Preencha seu nome e a mensagem para continuar.'), 'error');
       bad[0].focus();
       return null;
     }
@@ -157,24 +163,26 @@
     const d = read();
     if (!d) return;
     const text =
-      `Olá, Victor! Me chamo ${d.name}.\n` +
-      `Preciso de: ${d.type}\n\n${d.message}` +
-      (d.email ? `\n\nMeu e-mail: ${d.email}` : '');
+      __t('msg.wa', { name: d.name, type: d.type, message: d.message },
+          `Olá, Victor! Me chamo ${d.name}.\nPreciso de: ${d.type}\n\n${d.message}`) +
+      (d.email ? __t('msg.waEmail', { email: d.email }, `\n\nMeu e-mail: ${d.email}`) : '');
     const url = `https://wa.me/${WHATS}?text=${encodeURIComponent(text)}`;
     const w = window.open(url, '_blank');
     if (w) w.opener = null; else window.location.href = url;
-    setStatus('Abri o WhatsApp com a mensagem pronta. É só enviar por lá.', 'ok');
+    setStatus(__t('form.okWa', null, 'Abri o WhatsApp com a mensagem pronta. É só enviar por lá.'), 'ok');
   });
 
   document.getElementById('sendMail').addEventListener('click', () => {
     const d = read();
     if (!d) return;
-    const subject = encodeURIComponent(`Contato via portfólio — ${d.name}`);
+    const emailTxt = d.email || __t('form.notInformed', null, '(não informado)');
+    const subject = encodeURIComponent(__t('msg.mailSubject', { name: d.name }, `Contato via portfólio — ${d.name}`));
     const body = encodeURIComponent(
-      `Nome: ${d.name}\nE-mail: ${d.email || '(não informado)'}\nTipo de vídeo: ${d.type}\n\nMensagem:\n${d.message}`
+      __t('msg.mailBody', { name: d.name, email: emailTxt, type: d.type, message: d.message },
+          `Nome: ${d.name}\nE-mail: ${emailTxt}\nTipo de vídeo: ${d.type}\n\nMensagem:\n${d.message}`)
     );
     window.location.href = `mailto:${MAIL}?subject=${subject}&body=${body}`;
-    setStatus('Abri seu app de e-mail com a mensagem pronta. É só enviar por lá.', 'ok');
+    setStatus(__t('form.okMail', null, 'Abri seu app de e-mail com a mensagem pronta. É só enviar por lá.'), 'ok');
   });
 })();
 

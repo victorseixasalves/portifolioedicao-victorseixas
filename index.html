@@ -60,8 +60,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b5cf6'/%3E%3Cstop offset='.5' stop-color='%2338bdf8'/%3E%3Cstop offset='1' stop-color='%23f472b6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='%23070a14'/%3E%3Ctext x='32' y='42' font-family='Arial' font-size='26' font-weight='700' fill='url(%23g)' text-anchor='middle'%3EVS%3C/text%3E%3C/svg%3E">
 
-<link rel="stylesheet" href="style.css?v=3">
-<link rel="stylesheet" href="animations.css?v=3">
+<link rel="stylesheet" href="style.css?v=4">
+<link rel="stylesheet" href="animations.css?v=4">
 </head>
 <body>
 
@@ -83,16 +83,26 @@
   <div class="wrap">
     <a href="#hero" class="logo"><span class="badge">VS</span> Victor Seixas</a>
     <ul class="nav-links">
-      <li><a href="#sobre">Sobre</a></li>
-      <li><a href="#servicos">Serviços</a></li>
-      <li><a href="#portfolio">Portfólio</a></li>
-      <li><a href="#ferramentas">Ferramentas</a></li>
-      <li><a href="#depoimentos">Depoimentos</a></li>
-      <li><a href="#contato">Contato</a></li>
+      <li><a href="#sobre" data-i18n="nav.about">Sobre</a></li>
+      <li><a href="#servicos" data-i18n="nav.services">Serviços</a></li>
+      <li><a href="#portfolio" data-i18n="nav.portfolio">Portfólio</a></li>
+      <li><a href="#ferramentas" data-i18n="nav.tools">Ferramentas</a></li>
+      <li><a href="#depoimentos" data-i18n="nav.testimonials">Depoimentos</a></li>
+      <li><a href="#contato" data-i18n="nav.contact">Contato</a></li>
     </ul>
     <div class="nav-cta">
+      <div class="lang-switch" id="langSwitch">
+        <button type="button" class="lang-btn" id="langBtn" aria-haspopup="true" aria-expanded="false" aria-label="Idioma" data-i18n-aria="lang.label">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 010 18M12 3a14 14 0 000 18"/></svg><span id="langCode">PT</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <ul class="lang-menu" id="langMenu" hidden>
+          <li><button type="button" class="lang-opt" data-lang="pt" lang="pt"><span>Português</span><span class="code">PT</span></button></li>
+          <li><button type="button" class="lang-opt" data-lang="es" lang="es"><span>Español</span><span class="code">ES</span></button></li>
+          <li><button type="button" class="lang-opt" data-lang="en" lang="en"><span>English</span><span class="code">EN</span></button></li>
+        </ul>
+      </div>
       <a href="https://wa.me/5531983342557" target="_blank" rel="noopener" class="btn btn-ghost btn-small">WhatsApp</a>
-      <button class="hamburger" id="hamburger" aria-label="Abrir menu">
+      <button class="hamburger" id="hamburger" aria-label="Abrir menu" data-i18n-aria="nav.menu">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       </button>
     </div>
@@ -102,16 +112,16 @@
 <!-- ========== HERO (TOPO DO SITE) ========== -->
 <header class="hero" id="hero">
   <div class="hero-content">
-    <span class="eyebrow">Portfólio — Victor Seixas</span>
-    <h1>Edito para prender atenção: <span class="gradient-text">do primeiro frame ao último corte.</span></h1>
-    <p class="hero-sub">Edição de vídeo para redes sociais e conteúdo institucional.   Ritmo, cor e uma pegada visual que não passa despercebida.</p>
+    <span class="eyebrow" data-i18n="hero.eyebrow">Portfólio — Victor Seixas</span>
+    <h1 data-i18n-html="hero.title">Edito para prender atenção: <span class="gradient-text">do primeiro frame ao último corte.</span></h1>
+    <p class="hero-sub" data-i18n="hero.sub">Edição de vídeo para redes sociais e conteúdo institucional. Ritmo, cor e uma pegada visual que não passa despercebida.</p>
     <div class="hero-cta">
-      <a href="#portfolio" class="btn btn-primary">Ver portfólio</a>
-      <a href="https://wa.me/5531983342557" target="_blank" rel="noopener" class="btn btn-ghost">Falar no WhatsApp</a>
+      <a href="#portfolio" class="btn btn-primary" data-i18n="hero.cta1">Ver portfólio</a>
+      <a href="https://wa.me/5531983342557" target="_blank" rel="noopener" class="btn btn-ghost" data-i18n="hero.cta2">Falar no WhatsApp</a>
     </div>
   </div>
   <div class="scroll-indicator">
-    <span>role para ver mais</span>
+    <span data-i18n="hero.scroll">role para ver mais</span>
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
   </div>
 </header>
@@ -119,31 +129,31 @@
 <!-- ========== SEÇÃO: SOBRE ========== -->
 <section id="sobre" class="section">
   <div class="wrap">
-    <span class="eyebrow reveal">Sobre</span>
-    <h2 class="reveal">Quem edita</h2>
+    <span class="eyebrow reveal" data-i18n="nav.about">Sobre</span>
+    <h2 class="reveal" data-i18n="about.h2">Quem edita</h2>
     <div class="about-grid">
       <div class="about-visual reveal">
-        <div class="photo-frame"><img src="images/foto-victor.jpg" alt="Foto de Victor Seixas, editor de vídeo"></div>
+        <div class="photo-frame"><img src="images/foto-victor.jpg" alt="Foto de Victor Seixas, editor de vídeo" data-i18n-alt="about.photoAlt"></div>
       </div>
       <div class="about-text reveal">
-        <p>Me chamo Victor Seixas! Estudante de Sistemas de Informação na UNIMONTES e editor de vídeo focado em conteúdo para redes sociais e vídeos institucionais. Uso o CapCut como ferramenta principal, unindo ritmo, cor e storytelling para transformar gravação bruta em vídeo que prende atenção do primeiro frame ao último corte.</p>
-        <p>Ter uma base em tecnologia e programação me ajuda a pensar cada edição como um processo: estrutura clara, decisões rápidas e entrega consistente.</p>
+        <p data-i18n="about.p1">Me chamo Victor Seixas! Estudante de Sistemas de Informação na UNIMONTES e editor de vídeo focado em conteúdo para redes sociais e vídeos institucionais. Uso o CapCut como ferramenta principal, unindo ritmo, cor e storytelling para transformar gravação bruta em vídeo que prende atenção do primeiro frame ao último corte.</p>
+        <p data-i18n="about.p2">Ter uma base em tecnologia e programação me ajuda a pensar cada edição como um processo: estrutura clara, decisões rápidas e entrega consistente.</p>
         <div class="facts-row">
           <div class="fact glass-border"><div class="glass-inner">
             <div class="fact-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11a7 7 0 0114 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
-            <div class="fact-body"><span class="fact-label">Localização</span><span class="fact-value">Montes Claros, MG</span></div>
+            <div class="fact-body"><span class="fact-label" data-i18n="fact.loc">Localização</span><span class="fact-value" data-i18n="fact.locV">Montes Claros, MG</span></div>
           </div></div>
           <div class="fact glass-border"><div class="glass-inner">
             <div class="fact-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11.5V16c0 1.5 3 3 6 3s6-1.5 6-3v-4.5"/></svg></div>
-            <div class="fact-body"><span class="fact-label">Formação</span><span class="fact-value">Sistemas de Informação — UNIMONTES (7° período)</span></div>
+            <div class="fact-body"><span class="fact-label" data-i18n="fact.edu">Formação</span><span class="fact-value" data-i18n="fact.eduV">Sistemas de Informação — UNIMONTES (7° período)</span></div>
           </div></div>
           <div class="fact glass-border"><div class="glass-inner">
             <div class="fact-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4L8.1 15.9M14.5 14.5L20 20M8.1 8.1L12 12"/></svg></div>
-            <div class="fact-body"><span class="fact-label">Ferramenta principal</span><span class="fact-value">CapCut</span></div>
+            <div class="fact-body"><span class="fact-label" data-i18n="fact.tool">Ferramenta principal</span><span class="fact-value">CapCut</span></div>
           </div></div>
           <div class="fact glass-border"><div class="glass-inner">
             <div class="fact-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 010 18M12 3a14 14 0 000 18"/></svg></div>
-            <div class="fact-body"><span class="fact-label">Idiomas</span><span class="fact-value">Português · Inglês avançado</span></div>
+            <div class="fact-body"><span class="fact-label" data-i18n="fact.lang">Idiomas</span><span class="fact-value" data-i18n="fact.langV">Português · Inglês avançado</span></div>
           </div></div>
         </div>
       </div>
@@ -154,20 +164,20 @@
 <!-- ========== SEÇÃO: SERVIÇOS ========== -->
 <section id="servicos" class="section">
   <div class="wrap">
-    <span class="eyebrow reveal">Serviços</span>
-    <h2 class="reveal">O que eu faço</h2>
+    <span class="eyebrow reveal" data-i18n="nav.services">Serviços</span>
+    <h2 class="reveal" data-i18n="svc.h2">O que eu faço</h2>
     <div class="services-grid">
       <div class="service-card glass-border reveal"><div class="glass-inner">
         <div class="icon-box"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="7" y="2" width="10" height="20" rx="3"/><line x1="11" y1="18" x2="13" y2="18"/></svg></div>
-        <h3>Edição para Redes Sociais</h3>
-        <p>Reels, TikToks e vídeos verticais com cortes dinâmicos, legendas estilizadas e ritmo pensado pro algoritmo.</p>
+        <h3 data-i18n="svc.1.t">Edição para Redes Sociais</h3>
+        <p data-i18n="svc.1.p">Reels, TikToks e vídeos verticais com cortes dinâmicos, legendas estilizadas e ritmo pensado pro algoritmo.</p>
         <div class="tag-list"><span>#Reels</span><span>#TikTok</span><span>#Stories</span><span>#Shorts</span></div>
       </div></div>
       <div class="service-card glass-border reveal"><div class="glass-inner">
         <div class="icon-box"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="19" x2="12" y2="21"/></svg></div>
-        <h3>Vídeos Institucionais</h3>
-        <p>Conteúdo corporativo com narrativa clara, identidade visual consistente e acabamento profissional para representar sua marca com credibilidade.</p>
-        <div class="tag-list"><span>#Corporativo</span><span>#Treinamento</span><span>#Apresentações</span><span>#Eventos</span></div>
+        <h3 data-i18n="svc.2.t">Vídeos Institucionais</h3>
+        <p data-i18n="svc.2.p">Conteúdo corporativo com narrativa clara, identidade visual consistente e acabamento profissional para representar sua marca com credibilidade.</p>
+        <div class="tag-list"><span data-i18n="svc.tag.corp">#Corporativo</span><span data-i18n="svc.tag.train">#Treinamento</span><span data-i18n="svc.tag.pres">#Apresentações</span><span data-i18n="svc.tag.events">#Eventos</span></div>
       </div></div>
     </div>
   </div>
@@ -176,13 +186,13 @@
 <!-- ========== SEÇÃO: PORTFÓLIO ========== -->
 <section id="portfolio" class="section">
   <div class="wrap">
-    <span class="eyebrow reveal">Portfólio</span>
-    <h2 class="reveal">Projetos</h2>
+    <span class="eyebrow reveal" data-i18n="nav.portfolio">Portfólio</span>
+    <h2 class="reveal" data-i18n="pf.h2">Projetos</h2>
     <!-- FILTRO POR CLIENTE: para classificar um vídeo, use data-cat="vortex" ou data-cat="patricia" no card -->
-    <div class="portfolio-filter reveal" role="group" aria-label="Filtrar projetos por cliente">
-      <button type="button" class="filter-btn is-active" data-filter="all" aria-pressed="true">Todos <span class="count"></span></button>
+    <div class="portfolio-filter reveal" role="group" aria-label="Filtrar projetos por cliente" data-i18n-aria="pf.filterAria">
+      <button type="button" class="filter-btn is-active" data-filter="all" aria-pressed="true"><span data-i18n="pf.all">Todos</span> <span class="count"></span></button>
       <button type="button" class="filter-btn" data-filter="vortex" aria-pressed="false">Vortex <span class="count"></span></button>
-      <button type="button" class="filter-btn" data-filter="patricia" aria-pressed="false">Dra. Patrícia Lopes <span class="count"></span></button>
+      <button type="button" class="filter-btn" data-filter="patricia" aria-pressed="false"><span data-i18n="client.patricia">Dra. Patrícia Lopes</span> <span class="count"></span></button>
     </div>
     <div class="portfolio-grid" id="portfolioGrid">
       <article class="proj-card reveal" data-cat="vortex">
@@ -219,7 +229,7 @@
             <span class="yt-play"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></span>
           </button>
         </div>
-        <div class="proj-meta"><span class="proj-tag">Dra. Patrícia Lopes</span></div>
+        <div class="proj-meta"><span class="proj-tag" data-i18n="client.patricia">Dra. Patrícia Lopes</span></div>
       </article>
       <article class="proj-card reveal" data-cat="patricia">
         <div class="video-embed" data-yt="8jmt2JnZhjE" data-title="Projeto 05">
@@ -228,7 +238,7 @@
             <span class="yt-play"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></span>
           </button>
         </div>
-        <div class="proj-meta"><span class="proj-tag">Dra. Patrícia Lopes</span></div>
+        <div class="proj-meta"><span class="proj-tag" data-i18n="client.patricia">Dra. Patrícia Lopes</span></div>
       </article>
       <article class="proj-card reveal" data-cat="patricia">
         <div class="video-embed" data-yt="ahKdRrc99kk" data-title="Projeto 06">
@@ -237,7 +247,7 @@
             <span class="yt-play"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></span>
           </button>
         </div>
-        <div class="proj-meta"><span class="proj-tag">Dra. Patrícia Lopes</span></div>
+        <div class="proj-meta"><span class="proj-tag" data-i18n="client.patricia">Dra. Patrícia Lopes</span></div>
       </article>
       <article class="proj-card reveal" data-cat="patricia">
         <div class="video-embed" data-yt="0SQvF-A_33Q" data-title="Projeto 07">
@@ -246,7 +256,7 @@
             <span class="yt-play"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></span>
           </button>
         </div>
-        <div class="proj-meta"><span class="proj-tag">Dra. Patrícia Lopes</span></div>
+        <div class="proj-meta"><span class="proj-tag" data-i18n="client.patricia">Dra. Patrícia Lopes</span></div>
       </article>
       <article class="proj-card reveal" data-cat="patricia">
         <div class="video-embed" data-yt="4mKqb1EVEc8" data-title="Projeto 08">
@@ -255,7 +265,7 @@
             <span class="yt-play"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></span>
           </button>
         </div>
-        <div class="proj-meta"><span class="proj-tag">Dra. Patrícia Lopes</span></div>
+        <div class="proj-meta"><span class="proj-tag" data-i18n="client.patricia">Dra. Patrícia Lopes</span></div>
       </article>
       <article class="proj-card reveal" data-cat="patricia">
         <div class="video-embed" data-yt="NbsYTlZuZTc" data-title="Projeto 09">
@@ -264,7 +274,7 @@
             <span class="yt-play"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></span>
           </button>
         </div>
-        <div class="proj-meta"><span class="proj-tag">Dra. Patrícia Lopes</span></div>
+        <div class="proj-meta"><span class="proj-tag" data-i18n="client.patricia">Dra. Patrícia Lopes</span></div>
       </article>
       <article class="proj-card reveal" data-cat="patricia">
         <div class="video-embed" data-yt="76bu0tH5Ikc" data-title="Projeto 10">
@@ -273,7 +283,7 @@
             <span class="yt-play"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></span>
           </button>
         </div>
-        <div class="proj-meta"><span class="proj-tag">Dra. Patrícia Lopes</span></div>
+        <div class="proj-meta"><span class="proj-tag" data-i18n="client.patricia">Dra. Patrícia Lopes</span></div>
       </article>
       <article class="proj-card reveal" data-cat="patricia">
         <div class="video-embed" data-yt="0AjiBz49fdE" data-title="Projeto 11">
@@ -282,7 +292,7 @@
             <span class="yt-play"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></span>
           </button>
         </div>
-        <div class="proj-meta"><span class="proj-tag">Dra. Patrícia Lopes</span></div>
+        <div class="proj-meta"><span class="proj-tag" data-i18n="client.patricia">Dra. Patrícia Lopes</span></div>
       </article>
       <article class="proj-card reveal" data-cat="patricia">
         <div class="video-embed" data-yt="8x5ZiEtIa_4" data-title="Projeto 12">
@@ -291,7 +301,7 @@
             <span class="yt-play"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></span>
           </button>
         </div>
-        <div class="proj-meta"><span class="proj-tag">Dra. Patrícia Lopes</span></div>
+        <div class="proj-meta"><span class="proj-tag" data-i18n="client.patricia">Dra. Patrícia Lopes</span></div>
       </article>
       <article class="proj-card reveal" data-cat="patricia">
         <div class="video-embed" data-yt="cOM4LIdlpAE" data-title="Projeto 13">
@@ -300,7 +310,7 @@
             <span class="yt-play"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></span>
           </button>
         </div>
-        <div class="proj-meta"><span class="proj-tag">Dra. Patrícia Lopes</span></div>
+        <div class="proj-meta"><span class="proj-tag" data-i18n="client.patricia">Dra. Patrícia Lopes</span></div>
       </article>
       <article class="proj-card reveal" data-cat="patricia">
         <div class="video-embed" data-yt="4CdEoxDNkzI" data-title="Projeto 14">
@@ -309,7 +319,7 @@
             <span class="yt-play"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></span>
           </button>
         </div>
-        <div class="proj-meta"><span class="proj-tag">Dra. Patrícia Lopes</span></div>
+        <div class="proj-meta"><span class="proj-tag" data-i18n="client.patricia">Dra. Patrícia Lopes</span></div>
       </article>
       <article class="proj-card reveal" data-cat="patricia">
         <div class="video-embed" data-yt="Vr0DxYpE0pg" data-title="Projeto 15">
@@ -318,7 +328,7 @@
             <span class="yt-play"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></span>
           </button>
         </div>
-        <div class="proj-meta"><span class="proj-tag">Dra. Patrícia Lopes</span></div>
+        <div class="proj-meta"><span class="proj-tag" data-i18n="client.patricia">Dra. Patrícia Lopes</span></div>
       </article>
       <article class="proj-card reveal" data-cat="patricia">
         <div class="video-embed" data-yt="GCMdfHvZlwQ" data-title="Projeto 16">
@@ -327,7 +337,7 @@
             <span class="yt-play"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></span>
           </button>
         </div>
-        <div class="proj-meta"><span class="proj-tag">Dra. Patrícia Lopes</span></div>
+        <div class="proj-meta"><span class="proj-tag" data-i18n="client.patricia">Dra. Patrícia Lopes</span></div>
       </article>
     </div>
     <div class="portfolio-more" id="portfolioMoreWrap" hidden>
@@ -340,27 +350,27 @@
 <!-- ========== SEÇÃO: FERRAMENTAS ========== -->
 <section id="ferramentas" class="section">
   <div class="wrap">
-    <span class="eyebrow reveal">Ferramentas</span>
-    <h2 class="reveal">Stack de edição</h2>
+    <span class="eyebrow reveal" data-i18n="nav.tools">Ferramentas</span>
+    <h2 class="reveal" data-i18n="tools.h2">Stack de edição</h2>
     <div class="glass-border reveal" style="margin-bottom:22px;"><div class="glass-inner tools-main">
-      <div class="tool-logo tool-logo--lg"><img src="images/capcut.png" alt="Logo do CapCut"></div>
+      <div class="tool-logo tool-logo--lg"><img src="images/capcut.png" alt="Logo do CapCut" data-i18n-alt="alt.capcut"></div>
       <div>
-        <span class="eyebrow" style="margin-bottom:4px;">Ferramenta principal</span>
+        <span class="eyebrow" style="margin-bottom:4px;" data-i18n="fact.tool">Ferramenta principal</span>
         <h3>CapCut</h3>
-        <p>Motion graphics, correção de cor, legendas automáticas e um fluxo rápido de exportação.</p>
+        <p data-i18n="tools.capcut">Motion graphics, correção de cor, legendas automáticas e um fluxo rápido de exportação.</p>
       </div>
     </div></div>
     <div class="tools-secondary reveal">
       <div class="tool-chip glass-border"><div class="glass-inner">
-        <div class="tool-logo tool-logo--sm"><img src="images/photoshop.png" alt="Logo do Photoshop"></div>
+        <div class="tool-logo tool-logo--sm"><img src="images/photoshop.png" alt="Logo do Photoshop" data-i18n-alt="alt.ps"></div>
         <div class="tool-text">
-          <span class="name">Photoshop</span><span class="desc">Capas e esboço de ideias</span>
+          <span class="name">Photoshop</span><span class="desc" data-i18n="tools.ps">Capas e esboço de ideias</span>
         </div>
       </div></div>
       <div class="tool-chip glass-border"><div class="glass-inner">
-        <div class="tool-logo tool-logo--sm"><img src="images/canva.png" alt="Logo do Canva"></div>
+        <div class="tool-logo tool-logo--sm"><img src="images/canva.png" alt="Logo do Canva" data-i18n-alt="alt.canva"></div>
         <div class="tool-text">
-          <span class="name">Canva</span><span class="desc">Peças gráficas de apoio</span>
+          <span class="name">Canva</span><span class="desc" data-i18n="tools.canva">Peças gráficas de apoio</span>
         </div>
       </div></div>
     </div>
@@ -370,17 +380,17 @@
 <!-- ========== SEÇÃO: DEPOIMENTOS ========== -->
 <section id="depoimentos" class="section">
   <div class="wrap">
-    <span class="eyebrow reveal">Depoimentos</span>
-    <h2 class="reveal">O que dizem</h2>
+    <span class="eyebrow reveal" data-i18n="nav.testimonials">Depoimentos</span>
+    <h2 class="reveal" data-i18n="test.h2">O que dizem</h2>
     <!-- DEPOIMENTOS - SUBSTITUIR pelos textos reais dos meus clientes quando tiver -->
     <!-- Para adicionar outro depoimento, copie um bloco "testimonial-card" inteiro e troque os textos. A grade se ajusta sozinha. -->
     <div class="testimonials-grid">
       <div class="testimonial-card glass-border reveal"><div class="glass-inner">
         <div class="t-head">
           <div class="quote-icon"><svg width="24" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M9 3C5 3 2 6.5 2 11c0 3.5 2 6 5 6v4l5-5c0-7-1-13-3-13zm11 0c-4 0-7 3.5-7 8 0 3.5 2 6 5 6v4l5-5c0-7-1-13-3-13z"/></svg></div>
-          <span class="t-chip">Redes Sociais</span>
+          <span class="t-chip" data-i18n="test.chip1">Redes Sociais</span>
         </div>
-        <p class="quote">"Qualidade e prazo, os vídeos foram entregues muito rápido e com uma qualidade fora da curva, indico de olho fechado."</p>
+        <p class="quote" data-i18n="test.q1">"Qualidade e prazo, os vídeos foram entregues muito rápido e com uma qualidade fora da curva, indico de olho fechado."</p>
         <div class="testimonial-author">
           <div class="t-avatar" aria-hidden="true">LF</div>
           <div class="t-info"><div class="t-name">Luís Felipe Silva</div><div class="t-role">CEO · Vortex</div></div>
@@ -389,12 +399,12 @@
       <div class="testimonial-card glass-border reveal"><div class="glass-inner">
         <div class="t-head">
           <div class="quote-icon"><svg width="24" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M9 3C5 3 2 6.5 2 11c0 3.5 2 6 5 6v4l5-5c0-7-1-13-3-13zm11 0c-4 0-7 3.5-7 8 0 3.5 2 6 5 6v4l5-5c0-7-1-13-3-13z"/></svg></div>
-          <span class="t-chip">Marketing Médico</span>
+          <span class="t-chip" data-i18n="test.chip2">Marketing Médico</span>
         </div>
-        <p class="quote">"No marketing médico, cada detalhe importa. A edição sempre valoriza a mensagem, mantém um alto padrão de qualidade e as entregas acontecem com muita agilidade. Recomendo sem pensar duas vezes!!"</p>
+        <p class="quote" data-i18n="test.q2">"No marketing médico, cada detalhe importa. A edição sempre valoriza a mensagem, mantém um alto padrão de qualidade e as entregas acontecem com muita agilidade. Recomendo sem pensar duas vezes!!"</p>
         <div class="testimonial-author">
           <div class="t-avatar" aria-hidden="true">AH</div>
-          <div class="t-info"><div class="t-name">Álisson Henrique</div><div class="t-role">Especialista em Marketing Médico</div></div>
+          <div class="t-info"><div class="t-name">Álisson Henrique</div><div class="t-role" data-i18n="test.role2">Especialista em Marketing Médico</div></div>
         </div>
       </div></div>
     </div>
@@ -406,9 +416,9 @@
   <div class="wrap">
     <div class="contact-grid">
       <div class="contact-info reveal">
-        <span class="eyebrow">Contato</span>
-        <h2>Vamos criar seu próximo vídeo</h2>
-        <p>Me chama pelo canal que for melhor para você — retorno rápido.</p>
+        <span class="eyebrow" data-i18n="nav.contact">Contato</span>
+        <h2 data-i18n="contact.h2">Vamos criar seu próximo vídeo</h2>
+        <p data-i18n="contact.p">Me chama pelo canal que for melhor para você — retorno rápido.</p>
         <div class="contact-links">
           <a class="contact-link" href="https://wa.me/5531983342557" target="_blank" rel="noopener">
             <div class="icon-box"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15L2 22l5.2-1.4A10 10 0 1012 2zm0 18.2a8.2 8.2 0 01-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1112 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.5.1-.6.8-.7.9-.3.2-.5.1a6.6 6.6 0 01-2-1.2 7.4 7.4 0 01-1.4-1.7c-.1-.2 0-.3.1-.5l.4-.4a1 1 0 00.2-.4.4.4 0 000-.4c-.1-.1-.5-1.3-.7-1.7s-.4-.4-.5-.4h-.5a.9.9 0 00-.6.3 2.8 2.8 0 00-.9 2.1 4.9 4.9 0 001 2.6 11.3 11.3 0 004.4 3.9c.6.3 1.1.4 1.5.6a3.6 3.6 0 001.6.1 2.7 2.7 0 001.8-1.2 2.2 2.2 0 00.1-1.2c0-.1-.2-.2-.4-.3z"/></svg></div>
@@ -416,7 +426,7 @@
           </a>
           <a class="contact-link" href="mailto:vseixasalves@gmail.com">
             <div class="icon-box"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 6l10 7 10-7"/></svg></div>
-            <div><span class="label">E-mail</span><br><span class="value">vseixasalves@gmail.com</span></div>
+            <div><span class="label" data-i18n="email">E-mail</span><br><span class="value">vseixasalves@gmail.com</span></div>
           </a>
           <a class="contact-link" href="https://www.linkedin.com/in/victor-seixas-alves" target="_blank" rel="noopener">
             <div class="icon-box"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div>
@@ -432,31 +442,31 @@
         <form class="contact-form glass-border" id="contactForm" novalidate>
           <div class="glass-inner">
             <div class="form-field">
-              <label for="name">Nome</label>
-              <input type="text" id="name" name="name" required autocomplete="name" placeholder="Como posso te chamar?">
+              <label for="name" data-i18n="form.name">Nome</label>
+              <input type="text" id="name" name="name" required autocomplete="name" placeholder="Como posso te chamar?" data-i18n-placeholder="form.phName">
             </div>
             <div class="form-field">
-              <label for="email">E-mail <span class="optional">(opcional)</span></label>
+              <label for="email"><span data-i18n="email">E-mail</span> <span class="optional" data-i18n="form.optional">(opcional)</span></label>
               <input type="email" id="email" name="email" autocomplete="email" placeholder="seuemail@exemplo.com">
             </div>
             <fieldset class="type-field">
-              <legend>Tipo de vídeo</legend>
+              <legend data-i18n="form.type">Tipo de vídeo</legend>
               <div class="type-options">
-                <label class="type-pill"><input type="radio" name="type" value="Redes sociais" checked><span>Redes sociais</span></label>
-                <label class="type-pill"><input type="radio" name="type" value="Vídeo institucional"><span>Institucional</span></label>
-                <label class="type-pill"><input type="radio" name="type" value="Outro"><span>Outro</span></label>
+                <label class="type-pill"><input type="radio" name="type" value="Redes sociais" data-i18n-value="form.type.social" checked><span data-i18n="form.type.social">Redes sociais</span></label>
+                <label class="type-pill"><input type="radio" name="type" value="Vídeo institucional" data-i18n-value="form.type.corp"><span data-i18n="form.type.corp.label">Institucional</span></label>
+                <label class="type-pill"><input type="radio" name="type" value="Outro" data-i18n-value="form.type.other"><span data-i18n="form.type.other">Outro</span></label>
               </div>
             </fieldset>
             <div class="form-field">
-              <label for="message">Mensagem</label>
-              <textarea id="message" name="message" rows="5" required placeholder="Me conta um pouco sobre o vídeo que você precisa..."></textarea>
+              <label for="message" data-i18n="form.message">Mensagem</label>
+              <textarea id="message" name="message" rows="5" required placeholder="Me conta um pouco sobre o vídeo que você precisa..." data-i18n-placeholder="form.phMsg"></textarea>
             </div>
             <div class="form-actions">
-              <button type="button" class="btn btn-primary" id="sendWhats"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15L2 22l5.2-1.4A10 10 0 1012 2zm0 18.2a8.2 8.2 0 01-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1112 20.2z"/></svg> Enviar pelo WhatsApp</button>
-              <button type="button" class="btn btn-ghost" id="sendMail"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 6l10 7 10-7"/></svg> Enviar por e-mail</button>
+              <button type="button" class="btn btn-primary" id="sendWhats"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15L2 22l5.2-1.4A10 10 0 1012 2zm0 18.2a8.2 8.2 0 01-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1112 20.2z"/></svg> <span data-i18n="form.sendWa">Enviar pelo WhatsApp</span></button>
+              <button type="button" class="btn btn-ghost" id="sendMail"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 6l10 7 10-7"/></svg> <span data-i18n="form.sendMail">Enviar por e-mail</span></button>
             </div>
             <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
-            <p class="form-note">A mensagem abre pronta no WhatsApp ou no seu app de e-mail. É só conferir e enviar.</p>
+            <p class="form-note" data-i18n="form.note">A mensagem abre pronta no WhatsApp ou no seu app de e-mail. É só conferir e enviar.</p>
           </div>
         </form>
       </div>
@@ -467,7 +477,7 @@
 <!-- ========== RODAPÉ ========== -->
 <footer>
   <div class="wrap">
-    <span class="foot-copy">© 2026 Victor Seixas Alves. Todos os direitos reservados.</span>
+    <span class="foot-copy" data-i18n="footer.copy">© 2026 Victor Seixas Alves. Todos os direitos reservados.</span>
     <div class="foot-socials">
       <a href="https://github.com/victorseixasalves" target="_blank" rel="noopener" aria-label="GitHub"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-3.2 19.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.5-1.1-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.9.8.1-.7.4-1.1.6-1.3-2.2-.3-4.6-1.1-4.6-4.9 0-1.1.4-2 1-2.6-.1-.3-.4-1.3.1-2.6 0 0 .8-.3 2.7 1a9.4 9.4 0 015 0c1.9-1.3 2.7-1 2.7-1 .5 1.3.2 2.3.1 2.6.6.6 1 1.5 1 2.6 0 3.8-2.4 4.6-4.6 4.9.4.3.7.9.7 1.9v2.8c0 .3.2.6.7.5A10 10 0 0012 2z"/></svg></a>
       <a href="https://www.linkedin.com/in/victor-seixas-alves" target="_blank" rel="noopener" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
@@ -477,14 +487,15 @@
 </footer>
 
 <!-- ========== BOTÃO FLUTUANTE DO WHATSAPP ========== -->
-<a href="https://wa.me/5531983342557?text=Ol%C3%A1%2C%20Victor%21%20Vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20fazer%20um%20or%C3%A7amento%20de%20v%C3%ADdeo." class="whats-fab" id="whatsFab" target="_blank" rel="noopener" aria-label="Falar com Victor no WhatsApp">
-  <span class="whats-label">Fale comigo</span>
+<a href="https://wa.me/5531983342557?text=Ol%C3%A1%2C%20Victor%21%20Vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20fazer%20um%20or%C3%A7amento%20de%20v%C3%ADdeo." class="whats-fab" id="whatsFab" target="_blank" rel="noopener" aria-label="Falar com Victor no WhatsApp" data-i18n-aria="fab.aria">
+  <span class="whats-label" data-i18n="fab.label">Fale comigo</span>
   <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 00-8.6 15L2 22l5.2-1.4A10 10 0 1012 2zm0 18.2a8.2 8.2 0 01-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1112 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.5.1-.6.8-.7.9-.3.2-.5.1a6.6 6.6 0 01-2-1.2 7.4 7.4 0 01-1.4-1.7c-.1-.2 0-.3.1-.5l.4-.4a1 1 0 00.2-.4.4.4 0 000-.4c-.1-.1-.5-1.3-.7-1.7s-.4-.4-.5-.4h-.5a.9.9 0 00-.6.3 2.8 2.8 0 00-.9 2.1 4.9 4.9 0 001 2.6 11.3 11.3 0 004.4 3.9c.6.3 1.1.4 1.5.6a3.6 3.6 0 001.6.1 2.7 2.7 0 001.8-1.2 2.2 2.2 0 00.1-1.2c0-.1-.2-.2-.4-.3z"/></svg>
 </a>
 
 <!-- ========== SCRIPTS ========== -->
-<script src="script.js?v=3"></script>
-<script src="animations.js?v=3"></script>
+<script src="script.js?v=4"></script>
+<script src="i18n.js?v=4"></script>
+<script src="animations.js?v=4"></script>
 
 </body>
 </html>
