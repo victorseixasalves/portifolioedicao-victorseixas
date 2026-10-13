@@ -33,6 +33,8 @@ const __t = (key, vars, fallback) => (window.I18N ? window.I18N.t(key, vars) : f
   const restore = () => {
     if (!playing) return;
     playing.innerHTML = originals.get(playing);
+    const c = playing.closest('.proj-card');
+    if (c) c.classList.remove('is-playing');
     playing = null;
   };
 
@@ -52,6 +54,9 @@ const __t = (key, vars, fallback) => (window.I18N ? window.I18N.t(key, vars) : f
     box.innerHTML = '';
     box.appendChild(f);
     playing = box;
+    // card em reprodução: sem balanço/inclinação, para o toque chegar certo no player
+    const card = box.closest('.proj-card');
+    if (card) card.classList.add('is-playing');
   });
 
   // filtro + "Ver mais"

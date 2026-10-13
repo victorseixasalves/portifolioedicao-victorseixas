@@ -873,3 +873,16 @@
   .lang-btn { padding: 9px 10px; gap: 6px; }
   .lang-btn svg:last-child { display: none; }
 }
+
+
+/* ==========================================================
+   Vídeo em reprodução: card totalmente parado
+   (o balanço 3D automático do celular continuava rodando por cima do player
+   e atrapalhava o toque para pausar/continuar)
+   ========================================================== */
+.proj-card.is-playing,
+.proj-card.is-playing:hover {
+  animation: none !important;
+  transform: none !important;
+  will-change: auto;
+}
