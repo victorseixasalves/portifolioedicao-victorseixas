@@ -872,3 +872,100 @@
   transform: none !important;
   will-change: auto;
 }
+
+/* ==========================================================
+   Seção "Como funciona"
+   - computador: 3 cards quadrados lado a lado, bem espaçados
+   - celular: 2 cards na primeira linha e 1 centralizado embaixo
+   ========================================================== */
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 36px;
+}
+
+.step-card {
+  position: relative;
+  display: flex;
+  aspect-ratio: 1 / 1;            /* quadrado (cresce se o texto precisar de mais espaço) */
+}
+.step-card .glass-inner {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 32px;
+}
+
+/* número + ícone no topo; título e texto ancorados embaixo */
+.step-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: auto;
+  padding-bottom: 20px;
+}
+.step-num {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 3rem;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  background: var(--holo);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.step-card h3 { font-size: 1.3rem; margin-bottom: 10px; }
+.step-card p { color: var(--text-muted); font-size: 0.97rem; line-height: 1.6; text-align: left; }
+
+/* traço que liga uma etapa à próxima (só no computador) */
+.step-card:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 62px;
+  right: -36px;
+  width: 36px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--violet), var(--cyan));
+  opacity: 0.7;
+}
+
+.deadline { margin-top: 36px; }
+.deadline .glass-inner {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 24px 30px;
+}
+.deadline .fact-label { margin-bottom: 4px; }
+.deadline p { color: var(--text); font-size: 1.05rem; text-align: left; }
+
+/* tablet e celular: 2 cards em cima e o terceiro centralizado embaixo */
+@media (max-width: 900px) {
+  .steps-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .step-card:not(:last-child)::after { display: none; }
+  .step-card:nth-child(3) {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: calc(50% - 10px);
+  }
+  .step-card .glass-inner { padding: 24px; }
+  .step-num { font-size: 2.4rem; }
+  .deadline { margin-top: 20px; }
+}
+
+/* celular: cards mais compactos (não precisam ser quadrados perfeitos) */
+@media (max-width: 560px) {
+  .steps-grid { gap: 14px; }
+  .step-card { aspect-ratio: auto; }
+  .step-card:nth-child(3) { width: calc(50% - 7px); }
+  .step-card .glass-inner { padding: 16px; }
+  .step-top { padding-bottom: 14px; }
+  .step-num { font-size: 1.9rem; }
+  .step-top .icon-box { width: 40px; height: 40px; border-radius: 12px; }
+  .step-top .icon-box svg { width: 20px; height: 20px; }
+  .step-card h3 { font-size: 0.98rem; margin-bottom: 8px; }
+  .step-card p { font-size: 0.82rem; line-height: 1.5; }
+  .deadline .glass-inner { padding: 20px 18px; gap: 14px; }
+  .deadline p { font-size: 0.95rem; }
+}

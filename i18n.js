@@ -96,7 +96,17 @@
   "msg.mailSubject": "Contato via portfólio — {name}",
   "msg.mailBody": "Nome: {name}\nE-mail: {email}\nTipo de vídeo: {type}\n\nMensagem:\n{message}",
   "fab.aria": "Falar com Victor no WhatsApp",
-  "fab.msg": "Olá, Victor! Vi seu portfólio e gostaria de fazer um orçamento de vídeo."
+  "fab.msg": "Olá, Victor! Vi seu portfólio e gostaria de fazer um orçamento de vídeo.",
+  "how.eyebrow": "Como funciona",
+  "how.h2": "Do primeiro contato à entrega",
+  "how.s1.t": "Você me conta o que precisa",
+  "how.s1.p": "Me passa o material bruto e o objetivo do vídeo: público, onde vai ser postado e estilo.",
+  "how.s2.t": "Eu cuido da edição",
+  "how.s2.p": "Cortes, ritmo, cor e legendas pensados para prender a atenção do primeiro ao último frame.",
+  "how.s3.t": "Ajustes e entrega",
+  "how.s3.p": "Você revisa, ajustamos em rodadas de revisão e, aprovado, eu envio o arquivo final.",
+  "how.deadline.label": "Prazo",
+  "how.deadline.p": "Entrego com a maior rapidez possível, em no máximo uma semana."
  },
  "es": {
   "nav.about": "Sobre mí",
@@ -186,7 +196,17 @@
   "msg.mailSubject": "Contacto desde el portafolio — {name}",
   "msg.mailBody": "Nombre: {name}\nCorreo: {email}\nTipo de video: {type}\n\nMensaje:\n{message}",
   "fab.aria": "Hablar con Victor por WhatsApp",
-  "fab.msg": "¡Hola, Victor! Vi tu portafolio y me gustaría pedir un presupuesto de video."
+  "fab.msg": "¡Hola, Victor! Vi tu portafolio y me gustaría pedir un presupuesto de video.",
+  "how.eyebrow": "Cómo funciona",
+  "how.h2": "Del primer contacto a la entrega",
+  "how.s1.t": "Me cuentas lo que necesitas",
+  "how.s1.p": "Me pasas el material en bruto y el objetivo del video: público, dónde se publicará y estilo.",
+  "how.s2.t": "Me encargo de la edición",
+  "how.s2.p": "Cortes, ritmo, color y subtítulos pensados para captar la atención del primer al último frame.",
+  "how.s3.t": "Ajustes y entrega",
+  "how.s3.p": "Revisas, ajustamos en rondas de revisión y, una vez aprobado, te envío el archivo final.",
+  "how.deadline.label": "Plazo",
+  "how.deadline.p": "Entrego con la mayor rapidez posible, en un máximo de una semana."
  },
  "en": {
   "nav.about": "About",
@@ -276,7 +296,17 @@
   "msg.mailSubject": "Contact via portfolio — {name}",
   "msg.mailBody": "Name: {name}\nEmail: {email}\nVideo type: {type}\n\nMessage:\n{message}",
   "fab.aria": "Chat with Victor on WhatsApp",
-  "fab.msg": "Hi, Victor! I saw your portfolio and would like a quote for a video."
+  "fab.msg": "Hi, Victor! I saw your portfolio and would like a quote for a video.",
+  "how.eyebrow": "How it works",
+  "how.h2": "From first contact to delivery",
+  "how.s1.t": "You tell me what you need",
+  "how.s1.p": "Send me the raw footage and the video’s goal: audience, where it will be posted and style.",
+  "how.s2.t": "I handle the editing",
+  "how.s2.p": "Cuts, pacing, color and captions designed to hold attention from the first to the last frame.",
+  "how.s3.t": "Revisions and delivery",
+  "how.s3.p": "You review, we adjust in revision rounds and, once approved, I send the final file.",
+  "how.deadline.label": "Turnaround",
+  "how.deadline.p": "I deliver as fast as possible, within one week at most."
  }
 };
 
