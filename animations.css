@@ -969,3 +969,80 @@
   .deadline .glass-inner { padding: 20px 18px; gap: 14px; }
   .deadline p { font-size: 0.95rem; }
 }
+
+
+/* ==========================================================
+   Hero em duas colunas: texto + vídeo de apresentação
+   (para trocar o formato do vídeo, mude só o aspect-ratio abaixo:
+    16 / 9 = horizontal, 9 / 16 = vertical)
+   ========================================================== */
+.hero-grid {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 28px;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 56px;
+  align-items: center;
+  text-align: left;
+}
+.hero-grid .hero-content { max-width: none; padding: 0; }
+.hero-grid .hero h1,
+.hero .hero-grid h1 { font-size: clamp(2rem, 3.9vw, 3.3rem); }
+.hero-grid .hero-sub { margin: 0 0 36px; text-align: left; text-align-last: left; max-width: 520px; }
+.hero-grid .hero-cta { justify-content: flex-start; }
+
+.hero-video .glass-inner { padding: 0; overflow: hidden; }
+.hero-video .glass-inner::after,
+.hero-video .spot { display: none; }          /* sem brilho por cima do vídeo */
+
+.hero-player {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: #000;
+}
+.hero-facade {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: #000;
+  cursor: pointer;
+  display: block;
+  overflow: hidden;
+}
+.hero-facade img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.hero-facade:focus-visible { outline: 2px solid var(--cyan); outline-offset: -4px; }
+.hero-player iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .hero-facade img { transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1), filter 0.4s ease; }
+  .hero-facade:hover img { transform: scale(1.04); filter: brightness(1.08); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .hero-video { animation: heroVideoIn 0.9s 0.5s cubic-bezier(0.22, 1, 0.36, 1) backwards; }
+  @keyframes heroVideoIn {
+    from { opacity: 0; transform: translateY(28px) scale(0.97); }
+    to   { opacity: 1; transform: none; }
+  }
+}
+
+/* tablet e celular: texto centralizado e o vídeo logo abaixo */
+@media (max-width: 900px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 44px; text-align: center; }
+  .hero-grid .hero-sub { margin: 0 auto 36px; text-align: center; text-align-last: center; }
+  .hero-grid .hero-cta { justify-content: center; }
+  .hero-video { width: 100%; max-width: 640px; margin: 0 auto; }
+}

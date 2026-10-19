@@ -6,6 +6,23 @@
 // tradução: usa o i18n.js quando estiver carregado; senão cai no texto em português
 const __t = (key, vars, fallback) => (window.I18N ? window.I18N.t(key, vars) : fallback);
 
+/* ---------- HERO: vídeo de apresentação (carrega o YouTube só ao clicar) ---------- */
+(() => {
+  const box = document.querySelector('.hero-player');
+  if (!box) return;
+  box.addEventListener('click', e => {
+    if (!e.target.closest('.hero-facade')) return;
+    const f = document.createElement('iframe');
+    f.src = `https://www.youtube.com/embed/${box.dataset.yt}?autoplay=1&rel=0&playsinline=1`;
+    f.title = 'Victor Seixas — showreel';
+    f.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+    f.referrerPolicy = 'strict-origin-when-cross-origin';
+    f.allowFullscreen = true;
+    box.innerHTML = '';
+    box.appendChild(f);
+  });
+})();
+
 /* ---------- PORTFÓLIO: filtro por cliente + vídeo só carrega ao clicar ---------- */
 (() => {
   const grid = document.getElementById('portfolioGrid');
@@ -197,7 +214,7 @@ document.querySelectorAll('.glass-inner').forEach((el, i) => {
 });
 
 /* ---------- INCLINAÇÃO NATURAL (celular): cada card balança no seu próprio ritmo ---------- */
-document.querySelectorAll('.glass-border:not(.contact-form), .proj-card').forEach((el, i) => {
+document.querySelectorAll('.glass-border:not(.contact-form):not(.hero-video)').forEach((el, i) => {
   el.style.setProperty('--tilt-dur', `${(8 + (i * 1.3) % 4).toFixed(1)}s`);
   el.style.setProperty('--tilt-offset', `${((i * 0.7) % 2.5).toFixed(1)}s`);
   el.style.setProperty('--tilt-dir', i % 2 ? 'reverse' : 'normal');
@@ -295,7 +312,7 @@ document.querySelectorAll('.glass-border:not(.contact-form), .proj-card').forEac
   });
 
   /* 4. Inclinação 3D em todos os cards (cards de vidro + vídeos do portfólio) */
-  document.querySelectorAll('.glass-border:not(.contact-form), .proj-card').forEach(card => {
+  document.querySelectorAll('.glass-border:not(.contact-form):not(.hero-video)').forEach(card => {
     card.addEventListener('mousemove', e => {
       if (card.querySelector('iframe')) return;            // vídeo tocando: não mexe
       const r = card.getBoundingClientRect();

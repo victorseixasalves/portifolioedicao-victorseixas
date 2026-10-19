@@ -106,7 +106,8 @@
   "how.s3.t": "Ajustes e entrega",
   "how.s3.p": "Você revisa, ajustamos em rodadas de revisão e, aprovado, eu envio o arquivo final.",
   "how.deadline.label": "Prazo",
-  "how.deadline.p": "Entrego com a maior rapidez possível, em no máximo uma semana."
+  "how.deadline.p": "Entrego com a maior rapidez possível, em no máximo uma semana.",
+  "hero.play": "Reproduzir vídeo de apresentação"
  },
  "es": {
   "nav.about": "Sobre mí",
@@ -206,7 +207,8 @@
   "how.s3.t": "Ajustes y entrega",
   "how.s3.p": "Revisas, ajustamos en rondas de revisión y, una vez aprobado, te envío el archivo final.",
   "how.deadline.label": "Plazo",
-  "how.deadline.p": "Entrego con la mayor rapidez posible, en un máximo de una semana."
+  "how.deadline.p": "Entrego con la mayor rapidez posible, en un máximo de una semana.",
+  "hero.play": "Reproducir video de presentación"
  },
  "en": {
   "nav.about": "About",
@@ -306,7 +308,8 @@
   "how.s3.t": "Revisions and delivery",
   "how.s3.p": "You review, we adjust in revision rounds and, once approved, I send the final file.",
   "how.deadline.label": "Turnaround",
-  "how.deadline.p": "I deliver as fast as possible, within one week at most."
+  "how.deadline.p": "I deliver as fast as possible, within one week at most.",
+  "hero.play": "Play showreel video"
  }
 };
 
